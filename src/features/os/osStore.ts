@@ -12,15 +12,15 @@ export const useOsStore = create<OsStore>((set) => ({
   runningApps: new Set(),
 
   runApp: (appName) => {
-    set((state) => {
-      state.runningApps.add(appName);
-      return state;
+    set(({ runningApps }) => {
+      runningApps.add(appName);
+      return { runningApps: structuredClone(runningApps) };
     });
   },
   closeApp: (appName) => {
-    set((state) => {
-      state.runningApps.delete(appName);
-      return state;
+    set(({ runningApps }) => {
+      runningApps.delete(appName);
+      return { runningApps: structuredClone(runningApps) };
     });
   },
 }));
