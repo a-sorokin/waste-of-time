@@ -1,10 +1,14 @@
-import styles from './Exe.module.scss';
+import styles from './WasteOfTimeExe.module.scss';
 import { useCallback } from 'react';
+import { APPS } from '@/features/os/constants';
+import { useOsStore } from '@/features/os/osStore';
 
-export const Exe = () => {
+export const WasteOfTimeExe = () => {
+  const runApp = useOsStore((state) => state.runApp);
+
   const onDoubleClick = useCallback(() => {
-    console.log('Waste of time.exe');
-  }, []);
+    runApp(APPS.todoList);
+  }, [runApp]);
 
   return (
     <div className={styles.container} onDoubleClick={onDoubleClick}>
