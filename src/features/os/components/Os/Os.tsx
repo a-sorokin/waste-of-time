@@ -1,5 +1,6 @@
 import styles from './Os.module.scss';
 import { FC, memo } from 'react';
+import { Desktop } from '@/features/os/components/Desktop/Desktop';
 import { Menu } from '@/features/os/components/Menu/Menu';
 import { Time } from '@/features/os/components/Time/Time';
 
@@ -17,11 +18,10 @@ const OsContent = () => {
     <div className={styles.os}>
       <div className={styles.header}>
         <Menu />
-
-        <div className={styles.time}>
-          <Time />
-        </div>
+        <Time />
       </div>
+
+      <Desktop />
     </div>
   );
 };
