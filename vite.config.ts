@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 import electron from 'vite-plugin-electron/simple';
 
 export default defineConfig(({ mode }) => {
-  const config = {
+  return {
     build: { sourcemap: true },
     resolve: {
       alias: {
@@ -24,6 +24,4 @@ export default defineConfig(({ mode }) => {
       }),
     ],
   };
-
-  return config;
 });
