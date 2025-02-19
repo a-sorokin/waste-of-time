@@ -1,0 +1,18 @@
+.donutContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -200;
+}
+
+.donut {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: #474444;
+  transform: scale(1.3);
+}
