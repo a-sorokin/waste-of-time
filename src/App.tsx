@@ -1,3 +1,9 @@
+import { LinuxBoot } from '@/features/booting';
+
 export const App = () => {
-  return <div>hi</div>;
+  return (
+    <div>
+      <LinuxBoot />
+    </div>
+  );
 };

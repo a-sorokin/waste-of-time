@@ -1,0 +1,18 @@
+export const BOOT_MESSAGES = [
+  'Initializing system...',
+  'Loading kernel modules...',
+  '[OK] Started System Logging Service',
+  '[OK] Started Journal Service',
+  'Checking file systems...',
+  '[OK] Found device /dev/sda1',
+  'Mounting filesystems...',
+  '[OK] Mounted /dev/sda1 on /',
+  'Starting network interface...',
+  '[OK] Network interface eth0 activated',
+  'Starting system services...',
+  '[OK] Started D-Bus System Message Bus',
+  '[OK] Started Network Manager',
+  'Starting desktop environment...',
+  '[OK] Graphical interface activated',
+  'System is ready.',
+];
