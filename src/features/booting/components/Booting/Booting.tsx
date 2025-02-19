@@ -1,8 +1,12 @@
 import styles from './Booting.module.scss';
-import { useEffect, useState } from 'react';
+import { FC, memo, useEffect, useState } from 'react';
 import { BOOT_MESSAGES } from '@/features/booting/components/Booting/constants';
 
-export const LinuxBoot = () => {
+type Props = {
+  onComplete: () => void;
+};
+
+export const LinuxBoot: FC<Props> = memo(({ onComplete }) => {
   const [lines, setLines] = useState<string[]>([]);
 
   useEffect(() => {
@@ -16,13 +20,17 @@ export const LinuxBoot = () => {
 
         const delay = Math.random() * 500 + 100;
         timeoutId = setTimeout(addLine, delay);
+        return;
       }
+      setTimeout(() => {
+        onComplete();
+      }, 3000);
     };
 
     timeoutId = setTimeout(addLine, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, []);
+  }, [onComplete]);
 
   return (
     <div className={styles.container}>
@@ -36,4 +44,4 @@ export const LinuxBoot = () => {
       <span className={styles.cursor} />
     </div>
   );
-};
+});
