@@ -1,35 +1,12 @@
 @mixin dark-theme {
-  --main-bg-color: rgba(30, 31, 33, 0.7);
-  --bg-color: rgba(30, 31, 33);
-  --bg-color-light: #323537;
-  --light-color: #3e3e3e;
-  --bright-color: #7c7c7c;
-  --main-color: rgba(255, 255, 255, 0.9);
-  --dark-color: #121212;
-}
-
-@mixin light-theme {
-  --main-bg-color: #fff;
-  --bg-color: #fff;
-  --bg-color-light: rgba(69, 69, 69, 0.3);
-  --light-color: rgb(230, 230, 230);
-  --bright-color: rgb(110, 110, 110);
-  --main-color: rgb(0, 0, 0);
-  --dark-color: rgba(69, 69, 69, 0.15);
+  --main-bg-color: black;
+  --text-color: white;
 }
 
 :root {
   @include dark-theme;
-
-  --main-padding: 10px;
-  --element-height: 25px;
-  --cursor-style: default;
 }
 
 html[data-theme='dark'] {
   @include dark-theme;
-}
-
-html[data-theme='light'] {
-  @include light-theme;
 }
