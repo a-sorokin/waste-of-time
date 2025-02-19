@@ -1,0 +1,12 @@
+.itemBtn {
+  border: none;
+  background-color: var(--bg-color);
+  padding-top: 0;
+  padding-bottom: 0;
+  min-width: 32px;
+  font-size: 12px;
+
+  &:hover * {
+    color: var(--main-color);
+  }
+}

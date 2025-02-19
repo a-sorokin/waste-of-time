@@ -1,0 +1,26 @@
+{
+  "plugins": ["prettier-plugin-css-order", "@trivago/prettier-plugin-sort-imports"],
+
+  "printWidth": 120,
+  "singleQuote": true,
+  "trailingComma": "all",
+
+  "importOrderParserPlugins": ["classProperties", "decorators-legacy", "typescript", "jsx"],
+  "importOrder": [
+    "^.+\\.scss$",
+    "^electron-store$",
+    "^react$",
+    "^zustand$",
+    "^react-dom/$",
+    "react-dom/client",
+    "clsx",
+    "sentry",
+    "vitest",
+    "@testing-library/react",
+    "<THIRD_PARTY_MODULES>",
+    "@e",
+    "^[./]"
+  ],
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true
+}

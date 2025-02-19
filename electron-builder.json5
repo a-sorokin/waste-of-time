@@ -1,0 +1,24 @@
+{
+  $schema: 'https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json',
+  appId: 'waste-of-time',
+  asar: true,
+  productName: 'Waste Of Time',
+  directories: { output: 'release/${version}' },
+  files: ['dist', 'dist-electron'],
+  mac: {
+    artifactName: '${productName}-Mac-${version}-${arch}-Installer.${ext}',
+    category: 'public.app-category.utilities',
+    icon: 'public/icon.icns',
+  },
+  win: {
+    artifactName: '${productName}-Windows-${version}-Setup.${ext}',
+    target: [{ target: 'nsis', arch: ['x64'] }],
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    deleteAppDataOnUninstall: false,
+  },
+  linux: { target: ['AppImage'], artifactName: '${productName}-Linux-${version}.${ext}' },
+}
