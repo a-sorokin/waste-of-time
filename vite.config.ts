@@ -3,7 +3,7 @@ import path from 'node:path';
 import { defineConfig } from 'vite';
 import electron from 'vite-plugin-electron/simple';
 
-export default defineConfig(({ mode }) => {
+export default defineConfig(() => {
   return {
     build: { sourcemap: true },
     resolve: {
