@@ -1,29 +1,29 @@
 .container {
-  background-color: black;
-  color: var(--text-color);
-  font-family: monospace;
   margin: 0;
+  background-color: black;
   padding: 20px;
   height: 100vh;
   overflow: hidden;
+  color: var(--text-color);
+  font-family: monospace;
 }
 
 .terminal {
-  white-space: pre-wrap;
   line-height: 1.2;
+  white-space: pre-wrap;
 }
 
 .cursor {
   display: inline-block;
+  animation: blink 1s step-end infinite;
+  background-color: var(--text-color);
   width: 8px;
   height: 15px;
-  background-color: var(--text-color);
-  animation: blink 1s step-end infinite;
 }
 
 .textLine {
-  opacity: 0;
   transform: translateY(20px);
+  opacity: 0;
   animation: fadeInUp 0.3s ease forwards;
 }
 
@@ -35,7 +35,7 @@
 
 @keyframes fadeInUp {
   to {
-    opacity: 1;
     transform: translateY(0);
+    opacity: 1;
   }
 }

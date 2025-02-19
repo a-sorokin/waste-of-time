@@ -4,13 +4,13 @@
 
 .menu {
   position: absolute;
+  z-index: 500;
   margin-top: 5px;
   border: 1px solid var(--main-color);
   border-radius: 3px;
-  width: 250px;
-  padding: 5px;
-  z-index: 500;
   background-color: black;
+  padding: 5px;
+  width: 250px;
 }
 
 .item {
