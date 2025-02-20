@@ -1,3 +1,4 @@
 export enum APPS {
-  todoList = 'Todo List',
+  todoList = 'Todo List.exe',
+  readme = 'README.txt',
 }

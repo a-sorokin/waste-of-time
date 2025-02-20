@@ -3,9 +3,10 @@ import { FC, memo, useEffect, useState } from 'react';
 
 type Props = {
   setLoadingComplete: (complete: boolean) => void;
+  launchSpeed?: number;
 };
 
-export const AppLoader: FC<Props> = memo(({ setLoadingComplete }) => {
+export const AppLoader: FC<Props> = memo(({ setLoadingComplete, launchSpeed }) => {
   const [progress, setProgress] = useState(0);
   const [dots, setDots] = useState('');
 
@@ -19,7 +20,7 @@ export const AppLoader: FC<Props> = memo(({ setLoadingComplete }) => {
         }
         return prev >= 100 ? 0 : prev + 2;
       });
-    }, 50);
+    }, launchSpeed || 50);
 
     const dotsInterval = setInterval(() => {
       setDots((prev) => (prev.length >= 3 ? '' : prev + '.'));

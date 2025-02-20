@@ -10,9 +10,10 @@ import { APPS } from '@/features/os/constants';
 type Props = {
   children: ReactNode;
   appName: APPS;
+  launchSpeed?: number;
 };
 
-export const AppContainer: FC<Props> = memo(({ children, appName }) => {
+export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed }) => {
   const nodeRef = useRef(null);
   const closeApp = useOsStore((state) => state.closeApp);
 
@@ -33,7 +34,7 @@ export const AppContainer: FC<Props> = memo(({ children, appName }) => {
           </div>
 
           <div>
-            {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} />}
+            {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} launchSpeed={launchSpeed} />}
 
             <Resizable
               enable={{
