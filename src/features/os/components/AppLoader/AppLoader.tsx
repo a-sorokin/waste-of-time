@@ -30,7 +30,7 @@ export const AppLoader: FC<Props> = memo(({ setLoadingComplete, launchSpeed }) =
       clearInterval(progressInterval);
       clearInterval(dotsInterval);
     };
-  }, [setLoadingComplete]);
+  }, [launchSpeed, setLoadingComplete]);
 
   return (
     <div className={styles.container}>

@@ -16,9 +16,11 @@ export const ReadmeExe = () => {
         <div className={styles.mainIcon}>
           <div>Text</div>
         </div>
+
         <div className={styles.overlayBox} />
         <div className={styles.arrow} />
       </div>
+
       <span className={styles.text}>{APPS.readme}</span>
     </div>
   );

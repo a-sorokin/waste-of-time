@@ -18,9 +18,11 @@ export const WasteOfTimeExe = () => {
           <div>. ✓ ---</div>
           <div>. ✓ ---</div>
         </div>
+
         <div className={styles.overlayBox} />
         <div className={styles.arrow} />
       </div>
+
       <span className={styles.text}>Waste of time.exe</span>
     </div>
   );

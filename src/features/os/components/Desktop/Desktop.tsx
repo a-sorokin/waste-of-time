@@ -24,7 +24,7 @@ export const Desktop = () => {
         ) : null}
 
         {runningApps.has(APPS.readme) ? (
-          <AppContainer appName={APPS.readme} launchSpeed={20}>
+          <AppContainer appName={APPS.readme} launchSpeed={10}>
             <Readme />
           </AppContainer>
         ) : null}
