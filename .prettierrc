@@ -18,6 +18,7 @@
     "vitest",
     "@testing-library/react",
     "react-draggable",
+    "re-resizable",
     "<THIRD_PARTY_MODULES>",
     "@e",
     "^[./]"

@@ -1,6 +1,8 @@
 import styles from './AppContainer.module.scss';
 import { FC, ReactNode, memo, useCallback, useRef, useState } from 'react';
+import clsx from 'clsx';
 import Draggable from 'react-draggable';
+import { Resizable } from 're-resizable';
 import { useOsStore } from '@/features/os';
 import { AppLoader } from '@/features/os/components/AppLoader/AppLoader';
 import { APPS } from '@/features/os/constants';
@@ -19,20 +21,22 @@ export const AppContainer: FC<Props> = memo(({ children, appName }) => {
   const onCloseClick = useCallback(() => closeApp(appName), [appName, closeApp]);
 
   return (
-    <Draggable nodeRef={nodeRef}>
-      <div ref={nodeRef} className={styles.appContainer}>
-        <div className={styles.titleBar}>
-          <span className={styles.title}>{appName}</span>
+    <div>
+      <Draggable nodeRef={nodeRef} handle=".drag">
+        <div ref={nodeRef} className={styles.appContainer}>
+          <div className={clsx(styles.titleBar, 'drag')}>
+            <span className={styles.title}>{appName}</span>
 
-          <span className={styles.close} onClick={onCloseClick}>
-            <div className={styles.icon}>×</div>
-          </span>
+            <span className={styles.close} onClick={onCloseClick}>
+              <div className={styles.icon}>×</div>
+            </span>
+          </div>
+
+          {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} />}
+
+          <Resizable>{children}</Resizable>
         </div>
-
-        {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} />}
-
-        {children}
-      </div>
-    </Draggable>
+      </Draggable>
+    </div>
   );
 });

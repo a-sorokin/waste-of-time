@@ -17,6 +17,7 @@
     "@sentry/electron": "^5.7.0",
     "@sentry/vite-plugin": "^2.22.6",
     "electron-store": "^9.0.0",
+    "re-resizable": "^6.10.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
