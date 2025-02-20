@@ -1,4 +1,5 @@
 import styles from './Desktop.module.scss';
+import { Doom, DoomExe } from '@/apps/doom';
 import { TodoList } from '@/apps/todoList';
 import { useOsStore } from '@/features/os';
 import { AppContainer } from '@/features/os/components/AppContainer/AppContainer';
@@ -14,6 +15,7 @@ export const Desktop = () => {
       <div className={styles.exe}>
         <WasteOfTimeExe />
         <ReadmeExe />
+        <DoomExe />
       </div>
 
       <div className={styles.apps}>
@@ -26,6 +28,12 @@ export const Desktop = () => {
         {runningApps.has(APPS.readme) ? (
           <AppContainer appName={APPS.readme} launchSpeed={10}>
             <Readme />
+          </AppContainer>
+        ) : null}
+
+        {runningApps.has(APPS.doom) ? (
+          <AppContainer appName={APPS.doom} launchSpeed={30}>
+            <Doom />
           </AppContainer>
         ) : null}
       </div>
