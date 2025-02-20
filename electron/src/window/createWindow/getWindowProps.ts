@@ -1,5 +1,6 @@
 import { BrowserWindowConstructorOptions } from 'electron';
 import path from 'node:path';
+import { DEV_MODE } from '@e/constants';
 import { VITE_DEV_SERVER_URL, __dirname } from '../../../main';
 
 export const getWindowProps = () => {
@@ -13,11 +14,9 @@ export const getWindowProps = () => {
     movable: true,
     minimizable: true,
     maximizable: true,
-    fullscreen: true,
+    fullscreen: !DEV_MODE,
     show: false,
     closable: true,
     frame: false,
-    transparent: true,
-    vibrancy: 'popover',
   } as BrowserWindowConstructorOptions;
 };

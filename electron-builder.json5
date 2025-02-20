@@ -2,7 +2,7 @@
   $schema: 'https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json',
   appId: 'waste-of-time',
   asar: true,
-  productName: 'Waste Of Time',
+  productName: 'WasteOfTimeVM',
   directories: { output: 'release/${version}' },
   files: ['dist', 'dist-electron'],
   mac: {
