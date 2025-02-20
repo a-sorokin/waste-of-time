@@ -1,8 +1,8 @@
 import styles from './AppContainer.module.scss';
 import { FC, ReactNode, memo, useCallback, useRef } from 'react';
+import Draggable from 'react-draggable';
 import { useOsStore } from '@/features/os';
 import { APPS } from '@/features/os/constants';
-import Draggable from 'react-draggable';
 
 type Props = {
   children: ReactNode;
@@ -20,6 +20,7 @@ export const AppContainer: FC<Props> = memo(({ children, appName }) => {
       <div ref={nodeRef} className={styles.appContainer}>
         <div className={styles.titleBar}>
           <span className={styles.title}>{appName}</span>
+
           <span className={styles.close} onClick={onCloseClick}>
             <div className={styles.icon}>×</div>
           </span>

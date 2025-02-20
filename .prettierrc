@@ -17,6 +17,7 @@
     "sentry",
     "vitest",
     "@testing-library/react",
+    "react-draggable",
     "<THIRD_PARTY_MODULES>",
     "@e",
     "^[./]"
