@@ -6,7 +6,6 @@ export let appWindow: BrowserWindow;
 
 export const createWindow = () => {
   appWindow = new BrowserWindow(getWindowProps());
-  // appWindow.setFullScreen(true);
   appWindow.maximize();
   setWindowUrl();
 };

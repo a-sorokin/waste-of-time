@@ -1,19 +1,9 @@
 import styles from './Os.module.scss';
-import { FC, memo } from 'react';
 import { Desktop } from '@/features/os/components/Desktop/Desktop';
 import { Menu } from '@/features/os/components/Menu/Menu';
 import { Time } from '@/features/os/components/Time/Time';
 
-type Props = {
-  isBootComplete: boolean;
-};
-
-export const Os: FC<Props> = memo(({ isBootComplete }) => {
-  if (!isBootComplete) return null;
-  return <OsContent />;
-});
-
-const OsContent = () => {
+export const Os = () => {
   return (
     <div className={styles.os}>
       <div className={styles.header}>

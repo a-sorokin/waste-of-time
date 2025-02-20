@@ -13,7 +13,7 @@ export const getWindowProps = () => {
     movable: true,
     minimizable: true,
     maximizable: true,
-    fullscreen: false,
+    fullscreen: true,
     show: false,
     closable: true,
     frame: false,
