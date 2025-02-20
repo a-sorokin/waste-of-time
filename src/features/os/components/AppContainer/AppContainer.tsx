@@ -25,16 +25,31 @@ export const AppContainer: FC<Props> = memo(({ children, appName }) => {
       <Draggable nodeRef={nodeRef} handle=".drag">
         <div ref={nodeRef} className={styles.appContainer}>
           <div className={clsx(styles.titleBar, 'drag')}>
-            <span className={styles.title}>{appName}</span>
+            <span>{appName}</span>
 
             <span className={styles.close} onClick={onCloseClick}>
               <div className={styles.icon}>×</div>
             </span>
           </div>
 
-          {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} />}
+          <div>
+            {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} />}
 
-          <Resizable>{children}</Resizable>
+            <Resizable
+              enable={{
+                top: false,
+                right: true,
+                bottom: true,
+                left: true,
+                topRight: false,
+                bottomRight: true,
+                bottomLeft: true,
+                topLeft: false,
+              }}
+            >
+              {children}
+            </Resizable>
+          </div>
         </div>
       </Draggable>
     </div>
