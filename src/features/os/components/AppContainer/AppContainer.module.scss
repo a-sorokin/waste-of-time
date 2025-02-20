@@ -1,6 +1,7 @@
 .appContainer {
   outline: 1px solid var(--main-color);
   border-radius: 3px;
+  overflow: hidden;
 }
 
 .titleBar {

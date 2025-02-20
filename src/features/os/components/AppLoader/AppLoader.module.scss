@@ -1,0 +1,47 @@
+.container {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  color: var(--text-color);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.loadingText {
+  margin-bottom: 0.5rem;
+}
+
+.progressWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.progressBar {
+  flex-grow: 1;
+  border: 1px solid var(--text-color);
+  background-color: #111;
+  height: 1.5rem;
+}
+
+.progress {
+  transition: width 100ms linear;
+  background-color: var(--text-color);
+  height: 100%;
+}
+
+.percentage {
+  width: 4rem;
+}
+
+.cancelText {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+}

@@ -1,7 +1,8 @@
 import styles from './AppContainer.module.scss';
-import { FC, ReactNode, memo, useCallback, useRef } from 'react';
+import { FC, ReactNode, memo, useCallback, useRef, useState } from 'react';
 import Draggable from 'react-draggable';
 import { useOsStore } from '@/features/os';
+import { AppLoader } from '@/features/os/components/AppLoader/AppLoader';
 import { APPS } from '@/features/os/constants';
 
 type Props = {
@@ -12,6 +13,8 @@ type Props = {
 export const AppContainer: FC<Props> = memo(({ children, appName }) => {
   const nodeRef = useRef(null);
   const closeApp = useOsStore((state) => state.closeApp);
+
+  const [loadingComplete, setLoadingComplete] = useState(false);
 
   const onCloseClick = useCallback(() => closeApp(appName), [appName, closeApp]);
 
@@ -25,6 +28,8 @@ export const AppContainer: FC<Props> = memo(({ children, appName }) => {
             <div className={styles.icon}>×</div>
           </span>
         </div>
+
+        {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} />}
 
         {children}
       </div>
