@@ -6,5 +6,5 @@ export const Input = () => {
     console.log(`hh`);
   }, []);
 
-  return <input type="text" className={styles.input} autoFocus onChange={onChange} />;
+  return <input type="text" className={styles.input} autoFocus onChange={onChange} placeholder="Type some text" />;
 };

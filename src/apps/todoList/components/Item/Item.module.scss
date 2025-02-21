@@ -1,3 +1,13 @@
 .item {
+  display: flex;
+  gap: 5px;
+  border-radius: 10px;
+  background-color: white;
+  padding: 12px;
+  width: 100%;
+  font-weight: bold;
+}
 
+.checked {
+  text-decoration: line-through;
 }

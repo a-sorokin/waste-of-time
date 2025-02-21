@@ -6,13 +6,16 @@
   min-height: 600px;
 }
 
-.todo * {
-  color: black;
-}
-
 .todo {
+  display: flex;
+  flex-direction: column;
   background-color: var(--todo-bg-color);
+  padding: 25px;
   min-width: 100%;
   min-height: 100%;
-  padding: 25px;
+  gap: 25px;
+}
+
+.todo * {
+  color: black;
 }

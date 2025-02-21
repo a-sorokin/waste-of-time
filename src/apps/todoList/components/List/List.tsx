@@ -4,8 +4,7 @@ import { Item } from '@/apps/todoList/components/Item/Item';
 export const List = () => {
   return (
     <div>
-      List
-      <Item />
+      <Item text={'test'} />
     </div>
   );
 };

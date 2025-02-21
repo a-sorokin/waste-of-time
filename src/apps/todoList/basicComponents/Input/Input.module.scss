@@ -5,4 +5,8 @@
   border-radius: 10px;
   padding: 12px;
   font-weight: bold;
+
+  &:focus {
+    outline: 1px solid black;
+  }
 }

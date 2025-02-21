@@ -1,0 +1,11 @@
+.checkbox {
+  appearance: none;
+
+  &:after {
+    content: '☑️';
+  }
+
+  &:checked:after {
+    content: '✅';
+  }
+}
