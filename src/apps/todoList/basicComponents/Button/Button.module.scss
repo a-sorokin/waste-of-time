@@ -1,0 +1,21 @@
+.button {
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background-color: var(--element-color);
+  padding-top: 13px;
+  padding-bottom: 13px;
+
+  &:hover {
+    background-color: var(--element-hover-color);
+  }
+
+  &:active {
+    scale: 1.02;
+  }
+}
+
+.text {
+  font-weight: bold;
+}

@@ -10,11 +10,13 @@ import { APPS } from '@/features/os/constants';
 type Props = {
   children: ReactNode;
   appName: APPS;
-  launchSpeed?: number;
   zIndex: number;
+
+  launchSpeed?: number;
+  minWidth?: number;
 };
 
-export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, zIndex }) => {
+export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, zIndex, minWidth }) => {
   const nodeRef = useRef(null);
   const closeApp = useOsStore((state) => state.closeApp);
   const runningApps = useOsStore((state) => state.runningApps);
@@ -38,6 +40,7 @@ export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, z
           <AppLoader launchSpeed={launchSpeed} />
 
           <Resizable
+            minWidth={minWidth}
             enable={{
               top: false,
               right: true,

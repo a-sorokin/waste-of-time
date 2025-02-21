@@ -16,7 +16,7 @@ export const Desktop = () => {
 
       <div className={styles.apps}>
         {/*todo set launchSpeed = 30*/}
-        <AppContainer appName={APPS.todoList} launchSpeed={1} zIndex={1}>
+        <AppContainer appName={APPS.todoList} launchSpeed={1} zIndex={1} minWidth={300}>
           <TodoList />
         </AppContainer>
 
