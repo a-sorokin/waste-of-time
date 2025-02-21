@@ -11,6 +11,8 @@
 
 .gameOver {
   position: absolute;
-  //top: 10px;
-  //left: 10px;
+}
+
+.info * {
+  color: var(--main-color);
 }

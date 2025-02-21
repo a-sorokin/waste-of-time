@@ -18,7 +18,7 @@ export const Tetris = () => {
           shift: 'HOLD',
         }}
       >
-        {({ HeldPiece, Gameboard, points, linesCleared, state, controller }) => (
+        {({ Gameboard, points, linesCleared, state, controller }) => (
           <>
             <div>
               <div>
@@ -26,7 +26,13 @@ export const Tetris = () => {
                 <p>Lines Cleared: {linesCleared}</p>
               </div>
 
-              <HeldPiece />
+              <div className={styles.info}>
+                <div>down MOVE DOWN</div>
+                <div>left MOVE LEFT</div>
+                <div>right MOVE RIGHT</div>
+                <div>up FLIP CLOCKWISE</div>
+                <div>space HARD DROP</div>
+              </div>
 
               {state === 'LOST' ? (
                 <div className={styles.gameOver}>
