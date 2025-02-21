@@ -1,8 +1,7 @@
 import styles from './Desktop.module.scss';
 import { Readme, ReadmeExe } from '@/apps/readme';
 import { Tetris, TetrisExe } from '@/apps/tetris';
-import { TodoList } from '@/apps/todoList';
-import { WasteOfTimeExe } from '@/apps/todoList/components/WasteOfTimeExe/WasteOfTimeExe';
+import { TodoList, WasteOfTimeExe } from '@/apps/todoList';
 import { AppContainer } from '@/features/os/components/AppContainer/AppContainer';
 import { APPS } from '@/features/os/constants';
 
@@ -16,7 +15,8 @@ export const Desktop = () => {
       </div>
 
       <div className={styles.apps}>
-        <AppContainer appName={APPS.todoList} launchSpeed={30} zIndex={1}>
+        {/*todo set launchSpeed = 30*/}
+        <AppContainer appName={APPS.todoList} launchSpeed={1} zIndex={1}>
           <TodoList />
         </AppContainer>
 

@@ -9,7 +9,8 @@ export type OsStore = {
 };
 
 export const useOsStore = create<OsStore>((set) => ({
-  runningApps: new Set(),
+  // todo []
+  runningApps: new Set([APPS.todoList]),
 
   runApp: (appName) => {
     set(({ runningApps }) => {
