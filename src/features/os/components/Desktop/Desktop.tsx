@@ -1,5 +1,5 @@
 import styles from './Desktop.module.scss';
-import { Doom, DoomExe } from '@/apps/doom';
+import { Tetris, TetrisExe } from '@/apps/tetris';
 import { TodoList } from '@/apps/todoList';
 import { useOsStore } from '@/features/os';
 import { AppContainer } from '@/features/os/components/AppContainer/AppContainer';
@@ -15,7 +15,7 @@ export const Desktop = () => {
       <div className={styles.exe}>
         <WasteOfTimeExe />
         <ReadmeExe />
-        <DoomExe />
+        <TetrisExe />
       </div>
 
       <div className={styles.apps}>
@@ -31,9 +31,9 @@ export const Desktop = () => {
           </AppContainer>
         ) : null}
 
-        {runningApps.has(APPS.doom) ? (
-          <AppContainer appName={APPS.doom} launchSpeed={0}>
-            <Doom />
+        {runningApps.has(APPS.tetris) ? (
+          <AppContainer appName={APPS.tetris} launchSpeed={0}>
+            <Tetris />
           </AppContainer>
         ) : null}
       </div>

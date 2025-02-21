@@ -1,28 +1,27 @@
-import styles from './DoomExe.module.scss';
+import styles from './TetrisExe.module.scss';
 import { useCallback } from 'react';
-import { DoomIcon } from '@/apps/doom/components/DoomExe/DoomIcon';
 import { APPS } from '@/features/os/constants';
 import { useOsStore } from '@/features/os/osStore';
 
-export const DoomExe = () => {
+export const TetrisExe = () => {
   const runApp = useOsStore((state) => state.runApp);
 
   const onDoubleClick = useCallback(() => {
-    runApp(APPS.doom);
+    runApp(APPS.tetris);
   }, [runApp]);
 
   return (
     <div className={styles.container} onDoubleClick={onDoubleClick}>
       <div className={styles.iconWrapper}>
         <div className={styles.mainIcon}>
-          <DoomIcon />
+          <div className={styles.t}>T</div>
         </div>
 
         <div className={styles.overlayBox} />
         <div className={styles.arrow} />
       </div>
 
-      <span className={styles.text}>{APPS.doom}</span>
+      <span className={styles.text}>{APPS.tetris}</span>
     </div>
   );
 };

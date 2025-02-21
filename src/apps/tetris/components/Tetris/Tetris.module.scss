@@ -1,0 +1,16 @@
+.tetrisContainer {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--main-bg-color);
+  width: 600px;
+  height: 600px;
+}
+
+.gameOver {
+  position: absolute;
+  //top: 10px;
+  //left: 10px;
+}
