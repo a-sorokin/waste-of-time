@@ -20,19 +20,19 @@ export const Desktop = () => {
 
       <div className={styles.apps}>
         {runningApps.has(APPS.todoList) ? (
-          <AppContainer appName={APPS.todoList} launchSpeed={30}>
+          <AppContainer appName={APPS.todoList} launchSpeed={30} zIndex={99}>
             <TodoList />
           </AppContainer>
         ) : null}
 
         {runningApps.has(APPS.readme) ? (
-          <AppContainer appName={APPS.readme} launchSpeed={10}>
+          <AppContainer appName={APPS.readme} launchSpeed={10} zIndex={98}>
             <Readme />
           </AppContainer>
         ) : null}
 
         {runningApps.has(APPS.tetris) ? (
-          <AppContainer appName={APPS.tetris} launchSpeed={0}>
+          <AppContainer appName={APPS.tetris} launchSpeed={0} zIndex={97}>
             <Tetris />
           </AppContainer>
         ) : null}

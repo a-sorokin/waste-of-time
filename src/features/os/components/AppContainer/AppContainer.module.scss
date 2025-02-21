@@ -1,4 +1,9 @@
+.appWrapper {
+}
+
 .appContainer {
+  position: absolute;
+  z-index: 100;
   border: 1px solid var(--main-color);
   border-radius: 3px;
   overflow: hidden;

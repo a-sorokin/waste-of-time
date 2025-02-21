@@ -15,9 +15,9 @@ export const App = () => {
   }, [isBootComplete]);
 
   return (
-    <div>
+    <>
       {isBootComplete ? <Donut /> : <LinuxBoot onComplete={setBootComplete} />}
       {runOS ? <Os /> : null}
-    </div>
+    </>
   );
 };
