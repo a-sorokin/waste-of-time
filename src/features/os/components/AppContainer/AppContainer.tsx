@@ -1,5 +1,5 @@
 import styles from './AppContainer.module.scss';
-import { FC, ReactNode, memo, useCallback, useRef } from 'react';
+import { FC, ReactNode, memo, useCallback, useMemo, useRef } from 'react';
 import clsx from 'clsx';
 import Draggable from 'react-draggable';
 import { Resizable } from 're-resizable';
@@ -17,9 +17,12 @@ type Props = {
 export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, zIndex }) => {
   const nodeRef = useRef(null);
   const closeApp = useOsStore((state) => state.closeApp);
+  const runningApps = useOsStore((state) => state.runningApps);
 
+  const isEnabled = useMemo(() => runningApps.has(appName), [appName, runningApps]);
   const onCloseClick = useCallback(() => closeApp(appName), [appName, closeApp]);
 
+  if (!isEnabled) return null;
   return (
     <Draggable nodeRef={nodeRef} handle=".drag">
       <div ref={nodeRef} className={styles.appContainer} style={{ zIndex: 100 + zIndex }}>
