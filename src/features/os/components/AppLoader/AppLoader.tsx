@@ -2,13 +2,13 @@ import styles from './AppLoader.module.scss';
 import { FC, memo, useEffect, useState } from 'react';
 
 type Props = {
-  setLoadingComplete: (complete: boolean) => void;
   launchSpeed?: number;
 };
 
-export const AppLoader: FC<Props> = memo(({ setLoadingComplete, launchSpeed }) => {
+export const AppLoader: FC<Props> = memo(({ launchSpeed }) => {
   const [progress, setProgress] = useState(0);
   const [dots, setDots] = useState('');
+  const [loadingComplete, setLoadingComplete] = useState(false);
 
   useEffect(() => {
     const progressInterval = setInterval(() => {
@@ -32,6 +32,7 @@ export const AppLoader: FC<Props> = memo(({ setLoadingComplete, launchSpeed }) =
     };
   }, [launchSpeed, setLoadingComplete]);
 
+  if (loadingComplete) return null;
   return (
     <div className={styles.container}>
       <div className={styles.wrapper}>

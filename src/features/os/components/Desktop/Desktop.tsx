@@ -32,7 +32,7 @@ export const Desktop = () => {
         ) : null}
 
         {runningApps.has(APPS.tetris) ? (
-          <AppContainer appName={APPS.tetris} launchSpeed={0} zIndex={97}>
+          <AppContainer appName={APPS.tetris} launchSpeed={5} zIndex={97}>
             <Tetris />
           </AppContainer>
         ) : null}

@@ -1,5 +1,5 @@
 import styles from './AppContainer.module.scss';
-import { FC, ReactNode, memo, useCallback, useRef, useState } from 'react';
+import { FC, ReactNode, memo, useCallback, useRef } from 'react';
 import clsx from 'clsx';
 import Draggable from 'react-draggable';
 import { Resizable } from 're-resizable';
@@ -18,13 +18,11 @@ export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, z
   const nodeRef = useRef(null);
   const closeApp = useOsStore((state) => state.closeApp);
 
-  const [loadingComplete, setLoadingComplete] = useState(false);
-
   const onCloseClick = useCallback(() => closeApp(appName), [appName, closeApp]);
 
   return (
     <Draggable nodeRef={nodeRef} handle=".drag">
-      <div ref={nodeRef} className={styles.appContainer} style={{ zIndex }}>
+      <div ref={nodeRef} className={styles.appContainer} style={{ zIndex: 100 + zIndex }}>
         <div className={clsx(styles.titleBar, 'drag')}>
           <span>{appName}</span>
 
@@ -34,9 +32,7 @@ export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, z
         </div>
 
         <div>
-          {loadingComplete || !launchSpeed ? null : (
-            <AppLoader setLoadingComplete={setLoadingComplete} launchSpeed={launchSpeed} />
-          )}
+          <AppLoader launchSpeed={launchSpeed} />
 
           <Resizable
             enable={{
