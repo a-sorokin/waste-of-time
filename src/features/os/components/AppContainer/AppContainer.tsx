@@ -34,7 +34,9 @@ export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed })
           </div>
 
           <div>
-            {loadingComplete ? null : <AppLoader setLoadingComplete={setLoadingComplete} launchSpeed={launchSpeed} />}
+            {loadingComplete || !launchSpeed ? null : (
+              <AppLoader setLoadingComplete={setLoadingComplete} launchSpeed={launchSpeed} />
+            )}
 
             <Resizable
               enable={{

@@ -9,8 +9,8 @@ export const DoomIcon = () => {
         y2="46.211"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#1a6dff"></stop>
-        <stop offset="1" stop-color="#c822ff"></stop>
+        <stop offset="0" stopColor="#1a6dff"></stop>
+        <stop offset="1" stopColor="#c822ff"></stop>
       </linearGradient>
       <path
         fill="url(#z0hUpC2qNvqkeWP6NJumua_5CLSNos6pTuq_gr1)"
@@ -24,8 +24,8 @@ export const DoomIcon = () => {
         y2="34.35"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#6dc7ff"></stop>
-        <stop offset="1" stop-color="#e6abff"></stop>
+        <stop offset="0" stopColor="#6dc7ff"></stop>
+        <stop offset="1" stopColor="#e6abff"></stop>
       </linearGradient>
       <polygon fill="url(#z0hUpC2qNvqkeWP6NJumub_5CLSNos6pTuq_gr2)" points="7,35 12,32 12,20 7,20"></polygon>
       <linearGradient
@@ -36,8 +36,8 @@ export const DoomIcon = () => {
         y2="34.822"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#6dc7ff"></stop>
-        <stop offset="1" stop-color="#e6abff"></stop>
+        <stop offset="0" stopColor="#6dc7ff"></stop>
+        <stop offset="1" stopColor="#e6abff"></stop>
       </linearGradient>
       <polygon fill="url(#z0hUpC2qNvqkeWP6NJumuc_5CLSNos6pTuq_gr3)" points="36,20 36,35 41,32 41,20"></polygon>
       <linearGradient
@@ -48,8 +48,8 @@ export const DoomIcon = () => {
         y2="34.09"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset="0" stop-color="#6dc7ff"></stop>
-        <stop offset="1" stop-color="#e6abff"></stop>
+        <stop offset="0" stopColor="#6dc7ff"></stop>
+        <stop offset="1" stopColor="#e6abff"></stop>
       </linearGradient>
       <polygon fill="url(#z0hUpC2qNvqkeWP6NJumud_5CLSNos6pTuq_gr4)" points="21,32 26,35 26,20 21,20"></polygon>
     </svg>

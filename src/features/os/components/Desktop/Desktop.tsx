@@ -32,7 +32,7 @@ export const Desktop = () => {
         ) : null}
 
         {runningApps.has(APPS.doom) ? (
-          <AppContainer appName={APPS.doom} launchSpeed={30}>
+          <AppContainer appName={APPS.doom} launchSpeed={0}>
             <Doom />
           </AppContainer>
         ) : null}
