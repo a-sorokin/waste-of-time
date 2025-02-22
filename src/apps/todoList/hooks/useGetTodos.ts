@@ -4,10 +4,14 @@ import { useTodoStore } from '@/apps/todoList/todoStore';
 
 export const useGetTodos = () => {
   const setTodos = useTodoStore((state) => state.setTodos);
+  const setLoading = useTodoStore((state) => state.setLoading);
 
   useEffect(() => {
+    setLoading(true);
+
     getTodosHttp().then(({ todos }) => {
       setTodos(todos);
+      setLoading(false);
     });
-  }, [setTodos]);
+  }, [setLoading, setTodos]);
 };

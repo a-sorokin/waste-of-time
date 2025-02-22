@@ -12,6 +12,7 @@ export type TodoStore = {
   todos: TodosObj;
   filter: FILTERS;
   sorting: SORTING;
+  loading: boolean;
 
   setTodos: (todos: Todos | TodosObj, isObj?: boolean) => void;
   addTodo: (value: string) => void;
@@ -20,12 +21,15 @@ export type TodoStore = {
 
   setFilter: (filter: FILTERS) => void;
   setSorting: (sorting: SORTING) => void;
+
+  setLoading: (loading: boolean) => void;
 };
 
 export const useTodoStore = create<TodoStore>((set) => ({
   todos: {},
   filter: FILTERS.All,
   sorting: SORTING.byDate,
+  loading: false,
 
   setTodos: (todos, isObj) => {
     set(() => ({
@@ -53,4 +57,6 @@ export const useTodoStore = create<TodoStore>((set) => ({
 
   setFilter: (filter) => set(() => ({ filter })),
   setSorting: (sorting) => set(() => ({ sorting })),
+
+  setLoading: (loading) => set(() => ({ loading })),
 }));
