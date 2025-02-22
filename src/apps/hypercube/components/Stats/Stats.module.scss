@@ -1,0 +1,9 @@
+.stats {
+  display: flex;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 100px;
+}

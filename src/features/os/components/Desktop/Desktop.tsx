@@ -1,5 +1,6 @@
 import styles from './Desktop.module.scss';
 import { useEffect } from 'react';
+import { HyperCubeExe, Hypercube } from '@/apps/hypercube';
 import { Readme, ReadmeExe } from '@/apps/readme';
 import { Tetris, TetrisExe } from '@/apps/tetris';
 import { TodoList, WasteOfTimeExe } from '@/apps/todoList';
@@ -22,6 +23,7 @@ export const Desktop = () => {
         <WasteOfTimeExe />
         <ReadmeExe />
         <TetrisExe />
+        <HyperCubeExe />
       </div>
 
       <div className={styles.apps}>
@@ -35,6 +37,10 @@ export const Desktop = () => {
 
         <AppContainer appName={APPS.tetris} launchSpeed={5}>
           <Tetris />
+        </AppContainer>
+
+        <AppContainer appName={APPS.hypercube} launchSpeed={20}>
+          <Hypercube />
         </AppContainer>
       </div>
     </div>
