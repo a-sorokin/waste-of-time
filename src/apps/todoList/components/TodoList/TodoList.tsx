@@ -1,5 +1,5 @@
 import styles from './TodoList.module.scss';
-import '@/apps/todoList/todoStyles.module.scss';
+import '@/apps/todoList/styles/todoStyles.module.scss';
 import { Add } from '@/apps/todoList/components/Add/Add';
 import { ErrorBoundary } from '@/apps/todoList/components/ErrorBoundary/ErrorBoundary';
 import { Filters } from '@/apps/todoList/components/Filters/Filters';
