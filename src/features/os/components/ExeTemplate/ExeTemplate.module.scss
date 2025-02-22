@@ -28,11 +28,19 @@
   border-radius: 4px;
   background-color: black;
   padding: 2px;
+  overflow: hidden;
   line-height: 14px;
 
   * {
     color: #d5d1d0;
   }
+}
+
+.arrowContainer {
+  position: absolute;
+  right: 1px;
+  bottom: 1px;
+  z-index: 5;
 }
 
 .overlayBox {

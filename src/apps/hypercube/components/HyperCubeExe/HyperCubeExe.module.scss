@@ -1,0 +1,130 @@
+.wrapper {
+  overflow: hidden;
+}
+
+.container {
+  position: relative;
+  transform: translate(-3px, -3px);
+  width: 48px;
+  height: 48px;
+}
+
+.perspective {
+  position: absolute;
+  perspective: 800px;
+  inset: 0;
+}
+
+.outerCube {
+  position: absolute;
+  animation: spin 10s linear infinite;
+  inset: 0;
+}
+
+.outerFace {
+  position: absolute;
+  transform: rotate(45deg);
+  inset: 0;
+  border: 4px solid rgba(34, 211, 238, 0.3);
+}
+
+.outerFaceBack {
+  position: absolute;
+  transform: rotate(45deg) scale(0.75) translateZ(8px);
+  inset: 0;
+  border: 4px solid rgba(34, 211, 238, 0.2);
+}
+
+.outerFaceFront {
+  position: absolute;
+  transform: rotate(45deg) scale(0.9) translateZ(-8px);
+  inset: 0;
+  border: 4px solid rgba(34, 211, 238, 0.1);
+}
+
+.innerCube {
+  position: absolute;
+  animation: spinReverse 8s linear infinite;
+  inset: 0;
+}
+
+.innerCubeContent {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+}
+
+.innerFace {
+  position: absolute;
+  transform: rotate(45deg);
+  inset: 0;
+  background: linear-gradient(to bottom right, #3b82f6, #22d3ee);
+}
+
+.innerFaceBack {
+  position: absolute;
+  transform: rotate(45deg) scale(0.9) translateZ(4px);
+  inset: 0;
+  background: linear-gradient(to top right, #2563eb, #0891b2);
+}
+
+.innerFaceFront {
+  position: absolute;
+  transform: rotate(45deg) scale(0.95) translateZ(-4px);
+  inset: 0;
+  background: linear-gradient(to bottom left, #1d4ed8, #0e7490);
+}
+
+.connector {
+  position: absolute;
+  animation: pulse 2s ease-in-out infinite;
+  inset: 32px;
+}
+
+.connectorLine {
+  position: absolute;
+  transform: rotate(45deg);
+  border: 2px dashed rgba(34, 211, 238, 0.2);
+  width: 100%;
+  height: 100%;
+}
+
+.glow {
+  position: absolute;
+  transform: rotate(45deg) scale(0.75);
+  filter: blur(16px);
+  inset: 0;
+  background: rgba(34, 211, 238, 0.05);
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinReverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.3;
+  }
+}

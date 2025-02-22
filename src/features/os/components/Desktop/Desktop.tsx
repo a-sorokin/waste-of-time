@@ -1,22 +1,13 @@
 import styles from './Desktop.module.scss';
-import { useEffect } from 'react';
 import { HyperCubeExe, Hypercube } from '@/apps/hypercube';
 import { Readme, ReadmeExe } from '@/apps/readme';
 import { Tetris, TetrisExe } from '@/apps/tetris';
 import { TodoList, WasteOfTimeExe } from '@/apps/todoList';
-import { useOsStore } from '@/features/os';
 import { AppContainer } from '@/features/os/components/AppContainer/AppContainer';
 import { APPS } from '@/features/os/constants';
 import { DEV_MODE } from '@e/constants';
 
 export const Desktop = () => {
-  const runApp = useOsStore((state) => state.runApp);
-
-  useEffect(() => {
-    if (!DEV_MODE) return;
-    runApp(APPS.todoList);
-  }, [runApp]);
-
   return (
     <div className={styles.desktop}>
       <div className={styles.exe}>
