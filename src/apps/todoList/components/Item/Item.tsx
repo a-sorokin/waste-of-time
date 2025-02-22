@@ -2,13 +2,16 @@ import styles from './Item.module.scss';
 import { FC, memo, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { Checkbox } from '@/apps/todoList/basicComponents/Checkbox/Checkbox';
-import { Todo } from '@/apps/todoList/types';
+import { useGetTodoItem } from '@/apps/todoList/hooks/useGetTodoItem';
+import { TodoId } from '@/apps/todoList/types';
 
 type Props = {
-  todo: Todo;
+  id: TodoId;
 };
 
-export const Item: FC<Props> = memo(({ todo }) => {
+export const Item: FC<Props> = memo(({ id }) => {
+  const todo = useGetTodoItem(id);
+
   const [checked, setChecked] = useState(false);
 
   const onChange = useCallback((checked: boolean) => {

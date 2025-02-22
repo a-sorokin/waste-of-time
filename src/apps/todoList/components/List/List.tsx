@@ -7,8 +7,8 @@ export const List = () => {
 
   return (
     <div className={styles.list}>
-      {todos.map((todo) => (
-        <Item key={`todoItem-${todo.id}`} todo={todo} />
+      {Object.values(todos).map(({ id }) => (
+        <Item key={`todoItem-${id}`} id={id} />
       ))}
     </div>
   );

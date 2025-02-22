@@ -1,5 +1,7 @@
+export type TodoId = string;
+
 export type Todo = {
-  id: string;
+  id: TodoId;
   title: string;
   completed: boolean;
   createdAt: string;
@@ -7,3 +9,5 @@ export type Todo = {
 };
 
 export type Todos = Todo[];
+
+export type TodosObj = { [key: TodoId]: Todo };
