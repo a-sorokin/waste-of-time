@@ -1,5 +1,6 @@
 .checkbox {
   appearance: none;
+  cursor: pointer;
 
   &:after {
     content: '☑️';
