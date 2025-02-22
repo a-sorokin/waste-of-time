@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { createTodo, getTodos } from '@/apps/todoList/http/todoHttp';
+import { createTodoHttp, getTodosHttp } from '@/apps/todoList/http/todoHttp';
 import { Todos } from '@/apps/todoList/types';
 
 export type TodoStore = {
@@ -13,17 +13,19 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
   todos: [],
 
   setTodos: (todos) => set({ todos }),
-  addTodo: (value) => {
+  addTodo: async (value) => {
     set(({ todos }) => {
       const now = String(Date.now());
       const todo = { id: now, title: value, completed: false, createdAt: now, updatedAt: now };
       return { todos: [...todos, todo] };
     });
 
-    createTodo(value).then(() => {
-      getTodos().then(({ todos }) => {
-        get().setTodos(todos);
-      });
-    });
+    try {
+      await createTodoHttp(value);
+      const { todos } = await getTodosHttp();
+      get().setTodos(todos);
+    } catch (error) {
+      alert(error);
+    }
   },
 }));

@@ -1,9 +1,9 @@
 import { todoApi } from '@/apps/todoList/http/todoApi';
 
-export const getTodos = () => {
+export const getTodosHttp = () => {
   return todoApi.getTodos();
 };
 
-export const createTodo = (title: string) => {
+export const createTodoHttp = (title: string) => {
   return todoApi.createTodo(title);
 };
