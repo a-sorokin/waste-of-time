@@ -17,7 +17,6 @@ export const ExeTemplate: FC<Props> = memo(({ appName, children }) => {
     <div className={styles.exeContainer} onDoubleClick={onDoubleClick}>
       <div className={styles.iconWrapper}>
         <div className={styles.mainIcon}>{children}</div>
-
         <div className={styles.overlayBox} />
         <div className={styles.arrow} />
       </div>
