@@ -16,15 +16,15 @@ export const Desktop = () => {
       </div>
 
       <div className={styles.apps}>
-        <AppContainer appName={APPS.todoList} launchSpeed={DEV_MODE ? 1 : 30} zIndex={1} minWidth={300} maxHeight={700}>
+        <AppContainer appName={APPS.todoList} launchSpeed={DEV_MODE ? 1 : 30} minWidth={300} maxHeight={700}>
           <TodoList />
         </AppContainer>
 
-        <AppContainer appName={APPS.readme} launchSpeed={10} zIndex={2}>
+        <AppContainer appName={APPS.readme} launchSpeed={10}>
           <Readme />
         </AppContainer>
 
-        <AppContainer appName={APPS.tetris} launchSpeed={5} zIndex={3}>
+        <AppContainer appName={APPS.tetris} launchSpeed={5}>
           <Tetris />
         </AppContainer>
       </div>
