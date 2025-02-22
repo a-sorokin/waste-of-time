@@ -3,6 +3,7 @@ import { UpdateTodoProps } from '@/apps/todoList/http/types';
 import { Todos, TodosObj } from '@/apps/todoList/types';
 import { addTodoHttpHandler } from '@/apps/todoList/utils/addTodoHttpHandler';
 import { convertTodosToObj } from '@/apps/todoList/utils/convertTodosToObj';
+import { deleteTodoHttpHandler } from '@/apps/todoList/utils/deleteTodoHttpHandler';
 import { getMergedTodos } from '@/apps/todoList/utils/getMergedTodos';
 import { getUpdatedTodos } from '@/apps/todoList/utils/getUpdatedTodos';
 import { updateTodoHttpHandler } from '@/apps/todoList/utils/updateTodoHttpHandler';
@@ -37,9 +38,9 @@ export const useTodoStore = create<TodoStore>((set) => ({
 
   deleteTodo: (id) => {
     set(({ todos }) => {
-      const newTodos = { ...todos };
-      delete newTodos[id];
-      return { todos: newTodos };
+      delete todos[id];
+      return { todos: { ...todos } };
     });
+    deleteTodoHttpHandler(id);
   },
 }));
