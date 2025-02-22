@@ -28,7 +28,9 @@ export const Add = () => {
   return (
     <div className={styles.add}>
       <div className={styles.title}>Add todo</div>
+
       <Input text={todoText} onChange={onTextChange} error={error} onEnterPress={onClick} onEscapePress={onEscape} />
+
       <Button onClick={onClick} disabled={error || !todoText.length}>
         Add Todo
       </Button>
