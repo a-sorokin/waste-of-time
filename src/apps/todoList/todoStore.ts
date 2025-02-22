@@ -10,7 +10,7 @@ import { updateTodoHttpHandler } from '@/apps/todoList/utils/updateTodoHttpHandl
 export type TodoStore = {
   todos: TodosObj;
 
-  setTodos: (todos: Todos | TodosObj, isObj: boolean) => void;
+  setTodos: (todos: Todos | TodosObj, isObj?: boolean) => void;
   addTodo: (value: string) => void;
   updateTodo: (props: UpdateTodoProps) => void;
 };

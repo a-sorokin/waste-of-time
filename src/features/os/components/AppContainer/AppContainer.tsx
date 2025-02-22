@@ -14,9 +14,10 @@ type Props = {
 
   launchSpeed?: number;
   minWidth?: number;
+  maxHeight?: number;
 };
 
-export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, zIndex, minWidth }) => {
+export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, zIndex, minWidth, maxHeight }) => {
   const nodeRef = useRef(null);
   const closeApp = useOsStore((state) => state.closeApp);
   const runningApps = useOsStore((state) => state.runningApps);
@@ -41,6 +42,7 @@ export const AppContainer: FC<Props> = memo(({ children, appName, launchSpeed, z
 
           <Resizable
             minWidth={minWidth}
+            maxHeight={maxHeight}
             enable={{
               top: false,
               right: true,
