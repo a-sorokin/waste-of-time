@@ -19,6 +19,6 @@ export enum FILTERS {
 }
 
 export enum SORTING {
-  creationDate = 'By creation date',
-  updateTime = 'By update time',
+  byDate = 'By date',
+  byName = 'By name',
 }
