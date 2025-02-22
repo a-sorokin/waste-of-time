@@ -9,8 +9,13 @@ export const Controls = () => {
 
   return (
     <div className={styles.controls}>
-      <Button onClick={addDimension}>Add dimension</Button>
-      <Button onClick={removeDimension}>Remove dimension</Button>
+      <Button className={styles.button} onClick={addDimension}>
+        Add dimension
+      </Button>
+
+      <Button className={styles.button} onClick={removeDimension}>
+        Remove dimension
+      </Button>
 
       <div>
         {dimensions.map((d, i) => (

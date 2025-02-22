@@ -1,15 +1,19 @@
 .controls {
   display: flex;
   position: fixed;
-  top: 20px;
+  top: 30px;
   right: 20px;
   flex-direction: column;
   gap: 10px;
-  z-index: 100;
+  z-index: 1;
   min-width: 200px;
 }
 
 .deltas {
   display: flex;
   gap: 5px;
+}
+
+.button {
+  border: 1px solid var(--text-color) !important;
 }
