@@ -22,7 +22,7 @@ export enum FILTERS {
 export enum SORTING {
   byDate = 'By date',
   byName = 'By name',
-  byPriority = 'By priority',
+  // byPriority = 'By priority',
 }
 
 export enum PRIORITY {
