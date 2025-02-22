@@ -2,24 +2,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: var(--cursor-style);
+  cursor: default;
   border: 0 solid transparent;
   border-radius: 5px;
   background-color: var(--main-bg-color);
   padding: 5px;
-  color: var(--main-color);
-
-  &:hover {
-    border-color: var(--light-color);
-  }
-
-  &:active {
-    border-color: var(--bright-color);
-  }
-
-  &:focus {
-    outline: none;
-  }
 }
 
 .text {
@@ -31,7 +18,7 @@
 
 .hint {
   display: flex;
-  color: var(--bright-color);
+  //color: var(--bright-color);
 }
 
 .centred {
@@ -44,9 +31,9 @@
 }
 
 .wide {
-  height: var(--element-height);
+  //height: var(--element-height);
 }
 
 .active {
-  outline: 1px solid var(--bright-color) !important;
+  //outline: 1px solid var(--bright-color) !important;
 }
