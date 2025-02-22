@@ -9,11 +9,11 @@
 .todo {
   display: flex;
   flex-direction: column;
+  gap: 25px;
   background-color: var(--todo-bg-color);
   padding: 25px;
   min-width: 100%;
   min-height: 100%;
-  gap: 25px;
 }
 
 .todo * {
