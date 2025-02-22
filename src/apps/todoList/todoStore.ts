@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { UpdateTodoProps } from '@/apps/todoList/http/types';
-import { FILTERS, TodoId, Todos, TodosObj } from '@/apps/todoList/types';
+import { FILTERS, SORTING, TodoId, Todos, TodosObj } from '@/apps/todoList/types';
 import { addTodoHttpHandler } from '@/apps/todoList/utils/addTodoHttpHandler';
 import { convertTodosToObj } from '@/apps/todoList/utils/convertTodosToObj';
 import { deleteTodoHttpHandler } from '@/apps/todoList/utils/deleteTodoHttpHandler';
@@ -11,17 +11,21 @@ import { updateTodoHttpHandler } from '@/apps/todoList/utils/updateTodoHttpHandl
 export type TodoStore = {
   todos: TodosObj;
   filter: FILTERS;
+  sorting: SORTING;
 
   setTodos: (todos: Todos | TodosObj, isObj?: boolean) => void;
   addTodo: (value: string) => void;
   updateTodo: (props: UpdateTodoProps) => void;
   deleteTodo: (id: TodoId) => void;
+
   setFilter: (filter: FILTERS) => void;
+  setSorting: (sorting: SORTING) => void;
 };
 
 export const useTodoStore = create<TodoStore>((set) => ({
   todos: {},
   filter: FILTERS.All,
+  sorting: SORTING.creationDate,
 
   setTodos: (todos, isObj) => {
     set(() => ({
@@ -48,4 +52,5 @@ export const useTodoStore = create<TodoStore>((set) => ({
   },
 
   setFilter: (filter) => set(() => ({ filter })),
+  setSorting: (sorting) => set(() => ({ sorting })),
 }));

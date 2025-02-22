@@ -4,6 +4,7 @@ import { Add } from '@/apps/todoList/components/Add/Add';
 import { ErrorBoundary } from '@/apps/todoList/components/ErrorBoundary/ErrorBoundary';
 import { Filters } from '@/apps/todoList/components/Filters/Filters';
 import { List } from '@/apps/todoList/components/List/List';
+import { Sorting } from '@/apps/todoList/components/Sorting/Sorting';
 import { useGetTodos } from '@/apps/todoList/hooks/useGetTodos';
 
 const Fallback = () => (
@@ -19,8 +20,9 @@ export const TodoList = () => {
     <ErrorBoundary fallback={<Fallback />}>
       <div className={styles.todoContainer}>
         <div className={styles.todo}>
-          <div className={styles.filters}>
+          <div className={styles.extraControls}>
             <Filters />
+            <Sorting />
           </div>
 
           <div className={styles.main}>

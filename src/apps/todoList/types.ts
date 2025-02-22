@@ -17,3 +17,8 @@ export enum FILTERS {
   Active = 'Active',
   Completed = 'Completed',
 }
+
+export enum SORTING {
+  creationDate = 'By creation date',
+  updateTime = 'By update time',
+}

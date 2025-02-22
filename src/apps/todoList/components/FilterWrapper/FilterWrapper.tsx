@@ -12,8 +12,8 @@ export const FilterWrapper: FC<Props> = ({ children, id }) => {
   const filter = useTodoStore((state) => state.filter);
   const { completed } = useGetTodoItem(id);
 
+  if (filter === FILTERS.All) return <>{children}</>;
   if (filter === FILTERS.Active && !completed) return <>{children}</>;
   if (filter === FILTERS.Completed && completed) return <>{children}</>;
-  if (filter === FILTERS.All) return <>{children}</>;
   return null;
 };
