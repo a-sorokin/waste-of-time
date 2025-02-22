@@ -4,6 +4,7 @@ import { Tetris, TetrisExe } from '@/apps/tetris';
 import { TodoList, WasteOfTimeExe } from '@/apps/todoList';
 import { AppContainer } from '@/features/os/components/AppContainer/AppContainer';
 import { APPS } from '@/features/os/constants';
+import { DEV_MODE } from '@e/constants';
 
 export const Desktop = () => {
   return (
@@ -15,8 +16,7 @@ export const Desktop = () => {
       </div>
 
       <div className={styles.apps}>
-        {/*todo set launchSpeed = 30*/}
-        <AppContainer appName={APPS.todoList} launchSpeed={1} zIndex={1} minWidth={300} maxHeight={700}>
+        <AppContainer appName={APPS.todoList} launchSpeed={DEV_MODE ? 1 : 30} zIndex={1} minWidth={300} maxHeight={700}>
           <TodoList />
         </AppContainer>
 

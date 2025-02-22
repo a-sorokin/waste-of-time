@@ -6,9 +6,10 @@ export const Readme = () => {
       <h3>Welcome to WasteOfTimeOS v0.1.8</h3>
       <span>What you can do</span>
       <li>Open apps</li>
-      <li>Drag them</li>
-      <li>Resize them</li>
-      <li>Enjoy the donut</li>
+      <li>Move</li>
+      <li>Resize</li>
+      <li>Enjoy the ASCII donut</li>
+      <li>Play Tetris</li>
     </div>
   );
 };

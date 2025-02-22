@@ -1,5 +1,6 @@
 import { create } from 'zustand';
 import { APPS } from '@/features/os/constants';
+import { DEV_MODE } from '@e/constants';
 
 export type OsStore = {
   runningApps: Set<APPS>;
@@ -9,8 +10,7 @@ export type OsStore = {
 };
 
 export const useOsStore = create<OsStore>((set) => ({
-  // todo []
-  runningApps: new Set([APPS.todoList]),
+  runningApps: new Set(DEV_MODE ? [APPS.todoList] : []),
 
   runApp: (appName) => {
     set(({ runningApps }) => {
