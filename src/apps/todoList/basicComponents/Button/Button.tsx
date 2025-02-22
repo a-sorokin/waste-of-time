@@ -6,13 +6,14 @@ type Props = {
   onClick: (e: MouseEvent<HTMLButtonElement>) => void;
   children: ReactElement | string;
 
+  className?: string;
   disabled?: boolean;
 };
 
-export const Button: FC<Props> = memo(({ children, onClick, disabled }) => {
+export const Button: FC<Props> = memo(({ children, onClick, disabled, className }) => {
   return (
     <button
-      className={clsx(styles.button, {
+      className={clsx(styles.button, className, {
         [styles.disabled]: disabled,
       })}
       onClick={onClick}

@@ -11,3 +11,9 @@ export type Todo = {
 export type Todos = Todo[];
 
 export type TodosObj = { [key: TodoId]: Todo };
+
+export enum FILTERS {
+  All = 'All',
+  Active = 'Active',
+  Completed = 'Completed',
+}

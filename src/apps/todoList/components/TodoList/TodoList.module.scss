@@ -1,14 +1,13 @@
 .todoContainer {
   display: flex;
   width: 100%;
-  min-width: 300px;
+  min-width: 400px;
   height: 100%;
   min-height: 600px;
 }
 
 .todo {
   display: flex;
-  flex-direction: column;
   gap: 25px;
   background-color: var(--todo-bg-color);
   padding: 25px;
@@ -19,4 +18,14 @@
 
 .todo * {
   color: black;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 100%;
+}
+
+.filters {
 }

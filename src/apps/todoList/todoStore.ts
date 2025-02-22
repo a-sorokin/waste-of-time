@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { UpdateTodoProps } from '@/apps/todoList/http/types';
-import { TodoId, Todos, TodosObj } from '@/apps/todoList/types';
+import { FILTERS, TodoId, Todos, TodosObj } from '@/apps/todoList/types';
 import { addTodoHttpHandler } from '@/apps/todoList/utils/addTodoHttpHandler';
 import { convertTodosToObj } from '@/apps/todoList/utils/convertTodosToObj';
 import { deleteTodoHttpHandler } from '@/apps/todoList/utils/deleteTodoHttpHandler';
@@ -10,15 +10,18 @@ import { updateTodoHttpHandler } from '@/apps/todoList/utils/updateTodoHttpHandl
 
 export type TodoStore = {
   todos: TodosObj;
+  filter: FILTERS;
 
   setTodos: (todos: Todos | TodosObj, isObj?: boolean) => void;
   addTodo: (value: string) => void;
   updateTodo: (props: UpdateTodoProps) => void;
   deleteTodo: (id: TodoId) => void;
+  setFilter: (filter: FILTERS) => void;
 };
 
 export const useTodoStore = create<TodoStore>((set) => ({
   todos: {},
+  filter: FILTERS.All,
 
   setTodos: (todos, isObj) => {
     set(() => ({
@@ -43,4 +46,6 @@ export const useTodoStore = create<TodoStore>((set) => ({
     });
     deleteTodoHttpHandler(id);
   },
+
+  setFilter: (filter) => set(() => ({ filter })),
 }));
