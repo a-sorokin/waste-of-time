@@ -9,5 +9,5 @@ export const DEFAULT_DIMENSION_DELTAS = [
   { x: 150, y: -100 },
   { x: 50, y: 100 },
   { x: 150, y: 100 },
-  { x: 150, y: -100 },
+  { x: 120, y: -100 },
 ] as const;

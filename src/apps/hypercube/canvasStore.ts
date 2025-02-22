@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { DIMENSIONS_LIMIT } from '@/apps/hypercube/constants/constants';
 import { DEFAULT_DIMENSION_DELTAS } from '@/apps/hypercube/constants/dimensionConstants';
 import { Dimensions } from '@/apps/hypercube/types/cubeTypes';
 
@@ -17,7 +18,7 @@ type TStore = {
   setStats: (stats: number) => void;
 };
 
-export const useCanvasStore = create<TStore>((set) => ({
+export const useCanvasStore = create<TStore>((set, get) => ({
   canvas: undefined,
   context: undefined,
   dimensions: [],
@@ -27,6 +28,7 @@ export const useCanvasStore = create<TStore>((set) => ({
   setContext: (context) => set({ context }),
 
   addDimension: () => {
+    if (get().dimensions.length >= DIMENSIONS_LIMIT) return;
     set(({ dimensions }) => {
       const newDimension = DEFAULT_DIMENSION_DELTAS[dimensions.length];
       const newDimensions = [...dimensions, newDimension ?? DEFAULT_DIMENSION_DELTAS.at(-1)];

@@ -1,0 +1,42 @@
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.warningContainer {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.ok {
+  display: none;
+}
+
+.warning * {
+  font-weight: bold;
+  font-size: 96px;
+  line-height: 65px;
+}
+
+.normalWarn * {
+  color: black;
+  font-size: 64px;
+}
+
+.warn * {
+  animation: blink 1s ease-in-out infinite;
+  color: #831414;
+}
+
+.smallText {
+  font-size: 20px;
+}
