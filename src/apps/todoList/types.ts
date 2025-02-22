@@ -11,5 +11,3 @@ export type Todo = {
 export type Todos = Todo[];
 
 export type TodosObj = { [key: TodoId]: Todo };
-
-export type UpdateTodoProps = { id: string; value?: string; completed?: boolean };

@@ -1,6 +1,7 @@
 import { create } from 'zustand';
-import { createTodoHttp, getTodosHttp } from '@/apps/todoList/http/todoHttp';
-import { Todos, TodosObj, UpdateTodoProps } from '@/apps/todoList/types';
+import { createTodoHttp, getTodosHttp, updateTodoHttp } from '@/apps/todoList/http/todoHttp';
+import { UpdateTodoProps } from '@/apps/todoList/http/types';
+import { Todos, TodosObj } from '@/apps/todoList/types';
 import { convertTodosToObj } from '@/apps/todoList/utils/convertTodosToObj';
 
 export type TodoStore = {
@@ -40,12 +41,12 @@ export const useTodoStore = create<TodoStore>((set, get) => ({
       return { todos: { ...todos, [id]: todo } };
     });
 
-    // try {
-    //   await createTodoHttp(value, id, completed);
-    //   const { todos } = await getTodosHttp();
-    //   get().setTodos(todos);
-    // } catch (error) {
-    //   alert(error);
-    // }
+    try {
+      const todo = get().todos[id];
+      const updatedTodo = await updateTodoHttp(todo);
+      set(({ todos }) => ({ todos: { ...todos, [id]: updatedTodo } }));
+    } catch (error) {
+      alert(error);
+    }
   },
 }));
