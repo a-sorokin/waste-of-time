@@ -1,52 +1,36 @@
 import { create } from 'zustand';
-import { createTodoHttp, getTodosHttp, updateTodoHttp } from '@/apps/todoList/http/todoHttp';
 import { UpdateTodoProps } from '@/apps/todoList/http/types';
 import { Todos, TodosObj } from '@/apps/todoList/types';
+import { addTodoHttpHandler } from '@/apps/todoList/utils/addTodoHttpHandler';
 import { convertTodosToObj } from '@/apps/todoList/utils/convertTodosToObj';
+import { getMergedTodos } from '@/apps/todoList/utils/getMergedTodos';
+import { getUpdatedTodos } from '@/apps/todoList/utils/getUpdatedTodos';
+import { updateTodoHttpHandler } from '@/apps/todoList/utils/updateTodoHttpHandler';
 
 export type TodoStore = {
   todos: TodosObj;
 
-  setTodos: (todos: Todos) => void;
+  setTodos: (todos: Todos | TodosObj, isObj: boolean) => void;
   addTodo: (value: string) => void;
   updateTodo: (props: UpdateTodoProps) => void;
 };
 
-export const useTodoStore = create<TodoStore>((set, get) => ({
+export const useTodoStore = create<TodoStore>((set) => ({
   todos: {},
 
-  setTodos: (todos) => set(() => ({ todos: convertTodosToObj(todos) })),
-
-  addTodo: async (value) => {
-    set(({ todos }) => {
-      const now = String(Date.now());
-      const todo = { id: now, title: value, completed: false, createdAt: now, updatedAt: now };
-      return { todos: { ...todos, [now]: todo } };
-    });
-
-    try {
-      await createTodoHttp(value);
-      const { todos } = await getTodosHttp();
-      get().setTodos(todos);
-    } catch (error) {
-      alert(error);
-    }
+  setTodos: (todos, isObj) => {
+    set(() => ({
+      todos: isObj ? (todos as TodosObj) : convertTodosToObj(todos as Todos),
+    }));
   },
 
-  updateTodo: async ({ id, value, completed }) => {
-    set(({ todos }) => {
-      const todo = { ...todos[id] };
-      todo.title = value ?? todo.title;
-      todo.completed = completed ?? todo.completed;
-      return { todos: { ...todos, [id]: todo } };
-    });
+  addTodo: async (value) => {
+    set(({ todos }) => ({ todos: getMergedTodos(value, todos) }));
+    addTodoHttpHandler(value);
+  },
 
-    try {
-      const todo = get().todos[id];
-      const updatedTodo = await updateTodoHttp(todo);
-      set(({ todos }) => ({ todos: { ...todos, [id]: updatedTodo } }));
-    } catch (error) {
-      alert(error);
-    }
+  updateTodo: async (props) => {
+    set(({ todos }) => ({ todos: getUpdatedTodos(props, todos) }));
+    updateTodoHttpHandler(props);
   },
 }));
