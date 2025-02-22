@@ -25,7 +25,7 @@ export type TodoStore = {
 export const useTodoStore = create<TodoStore>((set) => ({
   todos: {},
   filter: FILTERS.All,
-  sorting: SORTING.creationDate,
+  sorting: SORTING.byDate,
 
   setTodos: (todos, isObj) => {
     set(() => ({
