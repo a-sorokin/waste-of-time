@@ -1,0 +1,69 @@
+.exeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 4px;
+  width: 96px;
+  height: 96px;
+
+  &:hover {
+    background-color: #144514;
+  }
+}
+
+.iconWrapper {
+  position: relative;
+  margin-bottom: 4px;
+  width: 48px;
+  height: 48px;
+}
+
+.mainIcon {
+  position: absolute;
+  inset: 0;
+  border: 1px solid #0078d7;
+  border-radius: 4px;
+  background-color: black;
+  padding: 2px;
+  line-height: 14px;
+
+  * {
+    color: #d5d1d0;
+  }
+}
+
+.overlayBox {
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  border: 1px solid #0078d7;
+  border-radius: 2px;
+  background-color: black;
+  width: 16px;
+  height: 16px;
+}
+
+.arrow {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(-10%, 0) rotate(45deg);
+  border-top: 2px solid #0078d7;
+  border-right: 2px solid #0078d7;
+  width: 8px;
+  height: 8px;
+}
+
+.text {
+  background-color: transparent;
+  padding: 0 4px;
+  max-width: 100%;
+  color: var(--text-color);
+  font-size: 12px;
+  text-align: center;
+  word-break: break-word;
+}
