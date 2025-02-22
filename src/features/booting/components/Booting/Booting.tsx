@@ -22,9 +22,8 @@ export const LinuxBoot: FC<Props> = memo(({ onComplete }) => {
         timeoutId = setTimeout(addLine, delay);
         return;
       }
-      setTimeout(() => {
-        onComplete();
-      }, 3000);
+
+      setTimeout(onComplete, 3000);
     };
 
     timeoutId = setTimeout(addLine, 1000);
@@ -41,6 +40,7 @@ export const LinuxBoot: FC<Props> = memo(({ onComplete }) => {
           </div>
         ))}
       </div>
+
       <span className={styles.cursor} />
     </div>
   );

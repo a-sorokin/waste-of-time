@@ -6,8 +6,8 @@ const X_SPEED = 0.01;
 const Y_SPEED = 0.007;
 
 export const Donut = () => {
-  const [output, setOutput] = useState('');
   const frameRef = useRef(0);
+  const [output, setOutput] = useState('');
 
   useEffect(() => {
     let A = 1;
@@ -16,9 +16,11 @@ export const Donut = () => {
     const renderFrame = () => {
       const b = getDonutProps(A, B);
       let asciiFrame = '';
+
       for (let k = 0; k < 1760; k++) {
         asciiFrame += k % 80 ? b[k] : '\n';
       }
+
       setOutput(asciiFrame);
       A += X_SPEED;
       B += Y_SPEED;
