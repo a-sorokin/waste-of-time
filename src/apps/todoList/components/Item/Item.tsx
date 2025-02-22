@@ -19,12 +19,9 @@ export const Item: FC<Props> = memo(({ id }) => {
   const [hovered, setHovered] = useState(false);
 
   const onChange = useCallback((checked: boolean) => setChecked(checked), []);
+  const onClick = useCallback(() => updateTodo({ id, completed: !checked }), [checked, id, updateTodo]);
   const onHover = useCallback(() => setHovered(true), []);
   const onLeave = useCallback(() => setHovered(false), []);
-
-  const onClick = useCallback(() => {
-    updateTodo({ id, completed: !checked });
-  }, [checked, id, updateTodo]);
 
   useEffect(() => {
     setChecked(todo.completed);
