@@ -1,6 +1,7 @@
 import styles from './Canvas.module.scss';
 import { useEffect, useRef } from 'react';
 import { useCanvasStore } from '@/apps/hypercube/canvasStore';
+import { PERCENT_OF_VIEWPORT } from '@/apps/hypercube/constants/constants';
 import { drawElements } from '@/apps/hypercube/utils/canvasUtils/drawElements';
 import { initCanvas } from '@/apps/hypercube/utils/canvasUtils/initCanvas';
 import { resetCanvas } from '@/apps/hypercube/utils/canvasUtils/resetCanvas';
@@ -29,5 +30,12 @@ export const Canvas = () => {
     drawElements();
   }, [dimensions]);
 
-  return <canvas className={styles.canvas} ref={ref} width={window.innerWidth} height={window.innerHeight} />;
+  return (
+    <canvas
+      className={styles.canvas}
+      ref={ref}
+      width={window.innerWidth * PERCENT_OF_VIEWPORT}
+      height={window.innerHeight * PERCENT_OF_VIEWPORT}
+    />
+  );
 };
