@@ -1,29 +1,15 @@
 import styles from './WasteOfTimeExe.module.scss';
-import { useCallback } from 'react';
+import { ExeTemplate } from '@/features/os';
 import { APPS } from '@/features/os/constants';
-import { useOsStore } from '@/features/os/osStore';
 
 export const WasteOfTimeExe = () => {
-  const runApp = useOsStore((state) => state.runApp);
-
-  const onDoubleClick = useCallback(() => {
-    runApp(APPS.todoList);
-  }, [runApp]);
-
   return (
-    <div className={styles.container} onDoubleClick={onDoubleClick}>
-      <div className={styles.iconWrapper}>
-        <div className={styles.mainIcon}>
-          <div>. ✓ ---</div>
-          <div>. ✓ ---</div>
-          <div>. ✓ ---</div>
-        </div>
-
-        <div className={styles.overlayBox} />
-        <div className={styles.arrow} />
+    <ExeTemplate appName={APPS.todoList}>
+      <div className={styles.icon}>
+        <div>.✓----</div>
+        <div>.✓----</div>
+        <div>.✓----</div>
       </div>
-
-      <span className={styles.text}>Waste of time.exe</span>
-    </div>
+    </ExeTemplate>
   );
 };
