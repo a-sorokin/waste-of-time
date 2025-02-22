@@ -1,13 +1,14 @@
 import styles from './Item.module.scss';
-import { FC, useCallback, useState } from 'react';
+import { FC, memo, useCallback, useState } from 'react';
 import clsx from 'clsx';
 import { Checkbox } from '@/apps/todoList/basicComponents/Checkbox/Checkbox';
+import { Todo } from '@/apps/todoList/types';
 
 type Props = {
-  text: string;
+  todo: Todo;
 };
 
-export const Item: FC<Props> = ({ text }) => {
+export const Item: FC<Props> = memo(({ todo }) => {
   const [checked, setChecked] = useState(false);
 
   const onChange = useCallback((checked: boolean) => {
@@ -17,7 +18,7 @@ export const Item: FC<Props> = ({ text }) => {
   return (
     <div className={styles.item}>
       <Checkbox checked={checked} onChange={onChange} />
-      <span className={clsx({ [styles.checked]: checked })}>{text}</span>
+      <span className={clsx({ [styles.checked]: checked })}>{todo.title}</span>
     </div>
   );
-};
+});

@@ -1,12 +1,20 @@
 .input {
   outline: none;
   border: none;
-  background-color: white;
   border-radius: 10px;
+  background-color: white;
   padding: 12px;
   font-weight: bold;
 
   &:focus {
     outline: 1px solid black;
+  }
+}
+
+.error {
+  outline: 1px solid var(--error-color);
+
+  &:focus {
+    outline: 1px solid var(--error-color);
   }
 }
