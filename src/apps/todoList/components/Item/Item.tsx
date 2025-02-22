@@ -16,8 +16,9 @@ export const Item: FC<Props> = memo(({ todo }) => {
   }, []);
 
   return (
-    <div className={styles.item}>
+    <div className={styles.item} onClick={() => onChange(!checked)}>
       <Checkbox checked={checked} onChange={onChange} />
+
       <span className={clsx({ [styles.checked]: checked })}>{todo.title}</span>
     </div>
   );
