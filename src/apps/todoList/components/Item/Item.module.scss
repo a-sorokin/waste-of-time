@@ -1,5 +1,6 @@
 .item {
   display: flex;
+  position: relative;
   justify-content: space-between;
   align-items: center;
   gap: 5px;
@@ -13,4 +14,23 @@
 
 .checked {
   text-decoration: line-through;
+}
+
+.mainContent {
+  display: flex;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.itemText {
+  min-width: 100px;
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.buttons {
+  position: absolute;
+  right: 10px;
 }

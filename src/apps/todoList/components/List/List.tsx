@@ -2,7 +2,7 @@ import styles from './List.module.scss';
 import { useMemo } from 'react';
 import { FilterWrapper } from '@/apps/todoList/components/FilterWrapper/FilterWrapper';
 import { Item } from '@/apps/todoList/components/Item/Item';
-import { sortByDate, sortByName } from '@/apps/todoList/components/List/utils';
+import { sortByDate, sortByName, sortByPriority } from '@/apps/todoList/components/List/utils';
 import { useTodoStore } from '@/apps/todoList/todoStore';
 import { SORTING } from '@/apps/todoList/types';
 
@@ -15,6 +15,7 @@ export const List = () => {
 
     if (sorting === SORTING.byDate) return items.sort(sortByDate);
     if (sorting === SORTING.byName) return items.sort(sortByName);
+    if (sorting === SORTING.byPriority) return items.sort(sortByPriority);
     return items;
   }, [sorting, todos]);
 

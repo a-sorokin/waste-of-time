@@ -6,6 +6,7 @@ export type Todo = {
   completed: boolean;
   createdAt: string;
   updatedAt: string;
+  priority: PRIORITY;
 };
 
 export type Todos = Todo[];
@@ -21,4 +22,11 @@ export enum FILTERS {
 export enum SORTING {
   byDate = 'By date',
   byName = 'By name',
+  byPriority = 'By priority',
+}
+
+export enum PRIORITY {
+  Low = 1,
+  Medium = 2,
+  High = 3,
 }

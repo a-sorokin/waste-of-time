@@ -32,7 +32,9 @@ export const Item: FC<Props> = memo(({ id }) => {
       <div className={styles.mainContent}>
         <Checkbox checked={checked} onChange={onChange} />
 
-        <span className={clsx({ [styles.checked]: checked })}>{todo.title}</span>
+        <div className={clsx(styles.itemText, { [styles.checked]: checked })} title={todo.title}>
+          {todo.title}
+        </div>
       </div>
 
       {hovered ? (
