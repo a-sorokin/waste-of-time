@@ -13,6 +13,7 @@ export type TodoStore = {
   setTodos: (todos: Todos | TodosObj, isObj?: boolean) => void;
   addTodo: (value: string) => void;
   updateTodo: (props: UpdateTodoProps) => void;
+  deleteTodo: (id: string) => void;
 };
 
 export const useTodoStore = create<TodoStore>((set) => ({
@@ -32,5 +33,13 @@ export const useTodoStore = create<TodoStore>((set) => ({
   updateTodo: async (props) => {
     set(({ todos }) => ({ todos: getUpdatedTodos(props, todos) }));
     updateTodoHttpHandler(props);
+  },
+
+  deleteTodo: (id) => {
+    set(({ todos }) => {
+      const newTodos = { ...todos };
+      delete newTodos[id];
+      return { todos: newTodos };
+    });
   },
 }));

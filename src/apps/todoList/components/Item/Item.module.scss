@@ -1,6 +1,7 @@
 .item {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 5px;
   cursor: pointer;
   border-radius: 10px;
@@ -13,3 +14,4 @@
 .checked {
   text-decoration: line-through;
 }
+
