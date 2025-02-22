@@ -6,7 +6,7 @@ export type Todo = {
   completed: boolean;
   createdAt: string;
   updatedAt: string;
-  priority: PRIORITY;
+  // priority: PRIORITY;
 };
 
 export type Todos = Todo[];
