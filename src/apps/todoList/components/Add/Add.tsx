@@ -23,10 +23,12 @@ export const Add = () => {
     setError(value.length > TEXT_LIMIT);
   }, []);
 
+  const onEscape = useCallback(() => setTodoText(''), []);
+
   return (
     <div className={styles.add}>
       <div className={styles.title}>Add todo</div>
-      <Input text={todoText} onChange={onTextChange} error={error} onEnterPress={onClick} />
+      <Input text={todoText} onChange={onTextChange} error={error} onEnterPress={onClick} onEscapePress={onEscape} />
       <Button onClick={onClick}>Add Todo</Button>
     </div>
   );

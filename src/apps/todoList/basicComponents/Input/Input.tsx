@@ -8,9 +8,10 @@ type Props = {
 
   error?: boolean;
   onEnterPress?: () => void;
+  onEscapePress?: () => void;
 };
 
-export const Input: FC<Props> = memo(({ text, onChange, error, onEnterPress }) => {
+export const Input: FC<Props> = memo(({ text, onChange, error, onEnterPress, onEscapePress }) => {
   const onChangeHandler = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value.trim();
@@ -22,8 +23,9 @@ export const Input: FC<Props> = memo(({ text, onChange, error, onEnterPress }) =
   const keyPressHandler = useCallback(
     ({ key }: KeyboardEvent<HTMLInputElement>) => {
       if (key === 'Enter') onEnterPress && onEnterPress();
+      if (key === 'Escape') onEscapePress && onEscapePress();
     },
-    [onEnterPress],
+    [onEnterPress, onEscapePress],
   );
 
   return (
