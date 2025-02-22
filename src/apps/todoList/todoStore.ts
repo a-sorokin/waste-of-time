@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { UpdateTodoProps } from '@/apps/todoList/http/types';
-import { Todos, TodosObj } from '@/apps/todoList/types';
+import { TodoId, Todos, TodosObj } from '@/apps/todoList/types';
 import { addTodoHttpHandler } from '@/apps/todoList/utils/addTodoHttpHandler';
 import { convertTodosToObj } from '@/apps/todoList/utils/convertTodosToObj';
 import { deleteTodoHttpHandler } from '@/apps/todoList/utils/deleteTodoHttpHandler';
@@ -14,7 +14,7 @@ export type TodoStore = {
   setTodos: (todos: Todos | TodosObj, isObj?: boolean) => void;
   addTodo: (value: string) => void;
   updateTodo: (props: UpdateTodoProps) => void;
-  deleteTodo: (id: string) => void;
+  deleteTodo: (id: TodoId) => void;
 };
 
 export const useTodoStore = create<TodoStore>((set) => ({

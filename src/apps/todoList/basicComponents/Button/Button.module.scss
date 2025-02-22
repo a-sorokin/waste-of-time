@@ -19,3 +19,19 @@
 .text {
   font-weight: bold;
 }
+
+.disabled {
+  cursor: not-allowed;
+
+  &:active {
+    scale: 1;
+  }
+
+  &:hover {
+    background-color: var(--element-color);
+  }
+
+  .text {
+    color: #878787;
+  }
+}
