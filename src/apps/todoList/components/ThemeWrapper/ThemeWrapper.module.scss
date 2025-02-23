@@ -1,0 +1,47 @@
+@import '@/apps/todoList/styles/todoStyles.module.scss';
+
+.light {
+  @include todo-light-theme;
+}
+
+.dark {
+  @include todo-dark-theme;
+}
+
+.todoContainer {
+  display: flex;
+  position: relative;
+  width: 100%;
+  min-width: 400px;
+  height: 100%;
+  min-height: 600px;
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: var(--todo-bg-color);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: var(--element-color);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--element-color);
+  }
+}
+
+.themeButton {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  z-index: 1;
+
+  * {
+    color: var(--todo-text-color);
+  }
+}
