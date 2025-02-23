@@ -30,3 +30,8 @@ export enum PRIORITY {
   Medium = 2,
   High = 3,
 }
+
+export enum THEMES {
+  light = 'Light',
+  dark = 'Dark',
+}
