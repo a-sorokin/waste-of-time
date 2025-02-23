@@ -1,3 +1,17 @@
 .icon {
-  line-height: 12px;
+  line-height: 14px;
+}
+
+.row {
+  position: relative;
+}
+
+.line {
+  display: inline-block;
+  position: absolute;
+  top: 6px;
+  left: 15px;
+  background-color: #d5d1d0;
+  width: 25px;
+  height: 1px;
 }

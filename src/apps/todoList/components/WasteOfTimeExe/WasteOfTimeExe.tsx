@@ -6,9 +6,20 @@ export const WasteOfTimeExe = () => {
   return (
     <ExeTemplate appName={APPS.todoList}>
       <div className={styles.icon}>
-        <div>.✓----</div>
-        <div>.✓----</div>
-        <div>.✓----</div>
+        <div className={styles.row}>
+          <span>✓</span>
+          <div className={styles.line} />
+        </div>
+
+        <div className={styles.row}>
+          <span>✓</span>
+          <div className={styles.line} />
+        </div>
+
+        <div className={styles.row}>
+          <span>✓</span>
+          <div className={styles.line} />
+        </div>
       </div>
     </ExeTemplate>
   );
