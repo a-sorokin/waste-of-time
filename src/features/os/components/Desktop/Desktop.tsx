@@ -7,15 +7,21 @@ import { AppContainer } from '@/features/os/components/AppContainer/AppContainer
 import { APPS } from '@/features/os/constants';
 import { DEV_MODE } from '@e/constants';
 
+const Executables = () => {
+  return (
+    <div className={styles.exe}>
+      <WasteOfTimeExe />
+      <ReadmeExe />
+      <TetrisExe />
+      <HyperCubeExe />
+    </div>
+  );
+};
+
 export const Desktop = () => {
   return (
     <div className={styles.desktop}>
-      <div className={styles.exe}>
-        <WasteOfTimeExe />
-        <ReadmeExe />
-        <TetrisExe />
-        <HyperCubeExe />
-      </div>
+      <Executables />
 
       <div className={styles.apps}>
         <AppContainer appName={APPS.todoList} launchSpeed={DEV_MODE ? 1 : 30} minWidth={300} maxHeight={700}>
