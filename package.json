@@ -8,8 +8,8 @@
   "description": "Wake up Neo...",
   "scripts": {
     "dev": "vite",
-    "build": "npm run lint && npm run test && tsc && vite build --mode prod && electron-builder",
-    "build-dev": "tsc && vite build --mode dev && electron-builder",
+    "web": "vite --mode web",
+    "build": "npm run lint && npm run test && tsc && vite build && electron-builder",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "test": "vitest run"
   },
