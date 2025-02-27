@@ -7,6 +7,7 @@
 
   "importOrderParserPlugins": ["classProperties", "decorators-legacy", "typescript", "jsx"],
   "importOrder": [
+    "react-scan",
     "^.+\\.scss$",
     "^electron-store$",
     "^react$",
