@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { LinuxBoot } from '@/features/booting';
-import { Donut } from '@/features/donut';
+import { ScreenSaver } from '@/components/ScreenSaver';
 import { Os } from '@/features/os';
 import { DEV_MODE } from '@e/constants';
 
@@ -16,7 +15,7 @@ export const App = () => {
 
   return (
     <>
-      {isBootComplete ? <Donut /> : <LinuxBoot onComplete={setBootComplete} />}
+      <ScreenSaver isBootComplete={isBootComplete} onComplete={setBootComplete} />
       {runOS ? <Os /> : null}
     </>
   );
