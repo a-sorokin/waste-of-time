@@ -3,4 +3,5 @@ export enum APPS {
   readme = 'README.txt',
   tetris = 'Tetris.exe',
   hypercube = 'Hypercube.exe',
+  AST = 'AST.exe',
 }
