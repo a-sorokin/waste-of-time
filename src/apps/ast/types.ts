@@ -1,6 +1,8 @@
 import { EXPRESSION_NAMES, EXPRESSION_TYPES } from '@/apps/ast/constants';
 
-export type ExpressionValue = string | boolean | number;
+export type ExpressionBasicValue = string | boolean | number | Date | null;
+
+export type ExpressionValue = ExpressionBasicValue | ExpressionBasicValue[];
 
 export type Expression = {
   name: EXPRESSION_NAMES;
