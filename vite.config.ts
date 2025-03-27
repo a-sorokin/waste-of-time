@@ -12,6 +12,7 @@ export default defineConfig(({ mode }) => {
         '@e': path.resolve(__dirname, './electron/src'),
       },
     },
+    css: { preprocessorOptions: { scss: { api: 'modern-compiler' } } },
     plugins: [
       react(),
       mode === 'web'
