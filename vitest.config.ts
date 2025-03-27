@@ -11,6 +11,7 @@ export default defineConfig({
     alias: {
       '@': path.resolve(__dirname, './src'),
       '@e': path.resolve(__dirname, './electron/src'),
+      '@ast': path.resolve(__dirname, './src/apps/ast'),
     },
   },
 });

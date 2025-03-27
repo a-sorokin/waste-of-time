@@ -1,9 +1,9 @@
-import { add } from '@/apps/ast/logic/astFunctions/add';
-import { equals } from '@/apps/ast/logic/astFunctions/equals';
-import { not } from '@/apps/ast/logic/astFunctions/not';
-import { EXPRESSION_NAMES } from '@/apps/ast/logic/constants';
-import { parseParameters } from '@/apps/ast/logic/evaluators/utils';
-import { Expression } from '@/apps/ast/logic/types';
+import { add } from '@ast/logic/astFunctions/add';
+import { equals } from '@ast/logic/astFunctions/equals';
+import { not } from '@ast/logic/astFunctions/not';
+import { EXPRESSION_NAMES } from '@ast/logic/constants';
+import { parseParameters } from '@ast/logic/evaluators/utils';
+import { Expression } from '@ast/logic/types';
 
 const evaluateFunctionActions = {
   [EXPRESSION_NAMES.add]: (expression: Expression) => {

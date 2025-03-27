@@ -1,5 +1,5 @@
-import { evaluate } from '@/apps/ast/logic/evaluators/evaluate';
-import { Expression } from '@/apps/ast/logic/types';
+import { evaluate } from '@ast/logic/evaluators/evaluate';
+import { Expression } from '@ast/logic/types';
 
 export const parseParameters = (expression: Expression) => {
   const param1 = evaluate(expression.parameters[0]);

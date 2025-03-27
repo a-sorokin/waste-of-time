@@ -3,7 +3,8 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"],
-      "@e/*": ["electron/src/*"]
+      "@e/*": ["electron/src/*"],
+      "@ast/*": ["src/apps/ast/*"]
     },
     "target": "ESNext",
     "useDefineForClassFields": true,

@@ -1,5 +1,5 @@
-import { EXPRESSION_TYPES } from '@/apps/ast/logic/constants';
-import { Expression } from '@/apps/ast/logic/types';
+import { EXPRESSION_TYPES } from '@ast/logic/constants';
+import { Expression } from '@ast/logic/types';
 
 const evaluateLiteralActions = {
   [EXPRESSION_TYPES.literal]: (expression: Expression) => expression.value,

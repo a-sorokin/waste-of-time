@@ -1,7 +1,7 @@
-import { EXPRESSION_TYPES } from '@/apps/ast/logic/constants';
-import { evaluateFunction } from '@/apps/ast/logic/evaluators/evaluateFunction';
-import { evaluateLiteral } from '@/apps/ast/logic/evaluators/evaluateLiteral';
-import { Expression, ExpressionValue } from '@/apps/ast/logic/types';
+import { EXPRESSION_TYPES } from '@ast/logic/constants';
+import { evaluateFunction } from '@ast/logic/evaluators/evaluateFunction';
+import { evaluateLiteral } from '@ast/logic/evaluators/evaluateLiteral';
+import { Expression, ExpressionValue } from '@ast/logic/types';
 
 export const evaluate = (expression: Expression): ExpressionValue => {
   if (expression.type === EXPRESSION_TYPES.function) {
