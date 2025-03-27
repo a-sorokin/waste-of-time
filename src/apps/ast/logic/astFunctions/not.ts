@@ -1,5 +1,5 @@
-import { ExpressionValue } from '@/apps/ast/types';
+import { ExpressionValue } from '@/apps/ast/logic/types';
 
-export const not = (arg: ExpressionValue) => {
-  return !arg;
+export const not = (value: ExpressionValue) => {
+  return !value;
 };
