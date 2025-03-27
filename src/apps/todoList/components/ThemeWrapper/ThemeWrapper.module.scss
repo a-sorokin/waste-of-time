@@ -1,11 +1,11 @@
-@import '@/apps/todoList/styles/todoStyles.module.scss';
+@use '@/apps/todoList/styles/todoStyles.module.scss' as todoStyles;
 
 .light {
-  @include todo-light-theme;
+  @include todoStyles.todo-light-theme;
 }
 
 .dark {
-  @include todo-dark-theme;
+  @include todoStyles.todo-dark-theme;
 }
 
 .todoContainer {
