@@ -1,0 +1,39 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  background-color: var(--main-bg-color);
+  padding: 5px;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.hint {
+  display: flex;
+  //color: var(--bright-color);
+}
+
+.centred {
+  display: flex;
+  justify-content: center;
+}
+
+.wideHint {
+  width: 23px;
+}
+
+.wide {
+  //height: var(--element-height);
+}
+
+.active {
+  //outline: 1px solid var(--bright-color) !important;
+}

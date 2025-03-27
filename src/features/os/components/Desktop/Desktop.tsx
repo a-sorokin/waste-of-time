@@ -42,7 +42,7 @@ export const Desktop = () => {
           <Hypercube />
         </AppContainer>
 
-        <AppContainer appName={APPS.AST} launchSpeed={20}>
+        <AppContainer appName={APPS.AST} launchSpeed={20} minWidth={300} maxHeight={700}>
           <Ast />
         </AppContainer>
       </div>
