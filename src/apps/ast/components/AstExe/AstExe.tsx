@@ -5,7 +5,7 @@ import { APPS } from '@/features/os/constants';
 export const AstExe = () => {
   return (
     <ExeTemplate appName={APPS.AST}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" className={styles.ast}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" className={styles.astIcon}>
         <defs>
           <linearGradient id="backgroundGradient" x1="0%" y1="0%" x2="0%" y2="100%">
             <stop offset="0%" stopColor="#2c3e50" />

@@ -1,3 +1,5 @@
+import styles from './Ast.module.scss';
+
 export const Ast = () => {
-  return <div>Ast</div>;
+  return <main className={styles.ast}>Ast</main>;
 };
