@@ -6,7 +6,7 @@ export const AstEditor = () => {
 
   return (
     <div className={styles.astEditorContainer}>
-      <pre className={styles.editor}>{expression}</pre>
+      <pre className={styles.editor}>{expression || `expression`}</pre>
     </div>
   );
 };

@@ -1,8 +1,8 @@
 import { EXPRESSION_NAMES, EXPRESSION_TYPES } from '@ast/logic/constants';
 
-export type ExpressionBasicValue = string | boolean | number | Date | null;
+export type ExpressionBaseValue = string | boolean | number | Date | null;
 
-export type ExpressionValue = ExpressionBasicValue | ExpressionBasicValue[];
+export type ExpressionValue = ExpressionBaseValue | ExpressionBaseValue[];
 
 export type Expression = {
   name: EXPRESSION_NAMES;
