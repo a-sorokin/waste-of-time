@@ -19,9 +19,6 @@ export const useAstStore = create<Store>((set, get) => ({
 
     const parsedExpression: Expression = JSON.parse(expression);
     const localResult = evaluate(parsedExpression);
-
-    console.log(`localResult`, localResult);
-
     get().setResult(JSON.stringify(localResult));
   },
 
