@@ -5,15 +5,14 @@
   gap: 10px;
   background-color: var(--main-bg-color);
   padding: 10px;
-  width: 900px;
-  height: 600px;
+  width: 100%;
+  height: 100%;
 }
 
 .astContent {
   display: flex;
-  justify-content: space-between;
+  flex: 1;
   gap: 10px;
-  width: 100%;
   height: 100%;
   overflow: hidden;
 }
@@ -21,16 +20,21 @@
 .list {
   flex: 0.3;
   border: 1px solid green;
+  border-radius: 3px;
 }
 
 .editor {
   flex: 1;
   border: 1px solid green;
+  border-radius: 3px;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 }
 
 .result {
+  flex: 0.3;
   border: 1px solid green;
+  border-radius: 3px;
   width: 100%;
-  height: 150px;
 }
