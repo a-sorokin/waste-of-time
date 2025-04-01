@@ -1,11 +1,7 @@
 import { useAstStore } from '@ast/astStore';
 import { evaluate } from '@ast/logic/evaluators/evaluate';
 import { Expression } from '@ast/logic/types';
-
-export const setResult = (result: string) => {
-  const state = useAstStore.getState();
-  state.setResult(result);
-};
+import { setResult } from '@ast/utils/setResult';
 
 export const evaluateAndSetResult = async (expression: string) => {
   try {
