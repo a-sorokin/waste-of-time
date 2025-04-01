@@ -1,7 +1,7 @@
 import styles from './Ast.module.scss';
 import { useEffect } from 'react';
 import { useAstStore } from '@ast/astStore';
-import { AstEditor } from '@ast/components/AstEditor/AstEditor';
+import { Editor } from '@ast/components/Editor/Editor';
 import { ListOfExpressions } from '@ast/components/ListOfExpressions/ListOfExpressions';
 import { Result } from '@ast/components/Result/Result';
 import { EXPRESSIONS } from '@ast/expressions';
@@ -21,7 +21,7 @@ export const Ast = () => {
         </div>
 
         <div className={styles.editor}>
-          <AstEditor />
+          <Editor />
         </div>
       </div>
 
