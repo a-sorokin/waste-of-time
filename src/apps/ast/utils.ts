@@ -14,6 +14,6 @@ export const evaluateAndSetResult = async (expression: string) => {
     const resultString = JSON.stringify(localResult);
     useAstStore.getState().setResult(resultString);
   } catch (e) {
-    // console.error(e);
+    setResult((e as Error).message);
   }
 };
