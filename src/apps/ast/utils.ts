@@ -11,9 +11,6 @@ export const evaluateAndSetResult = async (expression: string) => {
   try {
     const parsedExpression: Expression = JSON.parse(expression);
     const localResult = await evaluate(parsedExpression);
-
-    if (!localResult) return;
-
     const resultString = JSON.stringify(localResult);
     useAstStore.getState().setResult(resultString);
   } catch (e) {

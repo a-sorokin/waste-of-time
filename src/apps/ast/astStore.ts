@@ -9,12 +9,13 @@ type Store = {
   setResult: (result: string) => void;
 };
 
-export const useAstStore = create<Store>((set) => ({
+export const useAstStore = create<Store>((set, get) => ({
   expression: '',
   result: '',
 
   setExpression: (expression) => {
     set({ expression });
+    get().setResult('Loading...');
     evaluateAndSetResult(expression);
   },
 
