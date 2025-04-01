@@ -1,7 +1,7 @@
-import { EVALUATION_ERROR, TYPE_ERROR } from '@ast/constants';
+import { EVALUATION_ERROR, TYPE_ERROR } from '@ast/constants/constants';
 import { EXPRESSION_TYPES } from '@ast/logic/constants';
 import { Expression } from '@ast/logic/types';
-import { setResult } from '@ast/utils';
+import { setResult } from '@ast/utils/setResult';
 
 const evaluateLiteralActions = {
   [EXPRESSION_TYPES.literal]: (expression: Expression) => expression.value,

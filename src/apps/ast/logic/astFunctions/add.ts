@@ -1,6 +1,6 @@
-import { NUM_ERROR } from '@ast/constants';
+import { NUM_ERROR } from '@ast/constants/constants';
 import { ExpressionValue } from '@ast/logic/types';
-import { setResult } from '@ast/utils';
+import { setResult } from '@ast/utils/setResult';
 
 export const add = (value1: ExpressionValue, value2: ExpressionValue) => {
   if (typeof value1 !== 'number' || typeof value2 !== 'number') {

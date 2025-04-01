@@ -4,7 +4,7 @@ import { useAstStore } from '@ast/astStore';
 import { Editor } from '@ast/components/Editor/Editor';
 import { ListOfExpressions } from '@ast/components/ListOfExpressions/ListOfExpressions';
 import { Result } from '@ast/components/Result/Result';
-import { EXPRESSIONS } from '@ast/expressions';
+import { EXPRESSIONS } from '@ast/constants/expressions';
 
 export const Ast = () => {
   const setExpression = useAstStore((state) => state.setExpression);

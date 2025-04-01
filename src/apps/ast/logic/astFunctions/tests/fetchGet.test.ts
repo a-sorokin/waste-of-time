@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { FETCH_ERROR } from '@ast/constants';
+import { FETCH_ERROR } from '@ast/constants/constants';
 import { fetchGet } from '@ast/logic/astFunctions/fetchGet';
-import * as utils from '@ast/utils';
+import * as utils from '@ast/utils/evaluateAndSetResult';
 
 describe('fetchGet', () => {
   beforeEach(() => {

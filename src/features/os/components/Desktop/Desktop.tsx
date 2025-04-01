@@ -30,7 +30,7 @@ export const Desktop = () => {
           <TodoList />
         </AppContainer>
 
-        <AppContainer appName={APPS.readme} launchSpeed={10}>
+        <AppContainer appName={APPS.readme} launchSpeed={10} minWidth={500} minHeight={400}>
           <Readme />
         </AppContainer>
 

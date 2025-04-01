@@ -1,4 +1,4 @@
-import { NAME_ERROR } from '@ast/constants';
+import { NAME_ERROR } from '@ast/constants/constants';
 import { add } from '@ast/logic/astFunctions/add';
 import { contains } from '@ast/logic/astFunctions/contains';
 import { equals } from '@ast/logic/astFunctions/equals';
@@ -7,7 +7,7 @@ import { not } from '@ast/logic/astFunctions/not';
 import { EXPRESSION_NAMES } from '@ast/logic/constants';
 import { parseOneParameter, parseTwoParameters } from '@ast/logic/evaluators/utils';
 import { Expression, ExpressionValue } from '@ast/logic/types';
-import { setResult } from '@ast/utils';
+import { setResult } from '@ast/utils/setResult';
 
 const evaluateFunctionActions = {
   [EXPRESSION_NAMES.add]: async (expression: Expression): Promise<ExpressionValue> => {

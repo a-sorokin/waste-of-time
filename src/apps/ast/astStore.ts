@@ -1,6 +1,6 @@
 import { create } from 'zustand';
-import { LOADING_MESSAGE } from '@ast/constants';
-import { evaluateAndSetResult } from '@ast/utils';
+import { LOADING_MESSAGE } from '@ast/constants/constants';
+import { evaluateAndSetResult } from '@ast/utils/evaluateAndSetResult';
 
 type Store = {
   expression: string;

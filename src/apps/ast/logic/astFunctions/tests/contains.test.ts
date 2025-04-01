@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
-import { CONTAIN_ERROR } from '@ast/constants';
+import { CONTAIN_ERROR } from '@ast/constants/constants';
 import { contains } from '@ast/logic/astFunctions/contains';
-import * as utils from '@ast/utils';
+import * as utils from '@ast/utils/evaluateAndSetResult';
 
 describe('contains function', () => {
   // Spy on setResult function

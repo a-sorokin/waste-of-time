@@ -2,7 +2,7 @@ import styles from './ListOfExpressions.module.scss';
 import { useCallback } from 'react';
 import { useAstStore } from '@ast/astStore';
 import { Button } from '@ast/basicComponents/Button/Button';
-import { EXPRESSIONS } from '@ast/expressions';
+import { EXPRESSIONS } from '@ast/constants/expressions';
 
 export const ListOfExpressions = () => {
   const setExpression = useAstStore((state) => state.setExpression);

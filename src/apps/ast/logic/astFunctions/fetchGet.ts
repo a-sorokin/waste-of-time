@@ -1,5 +1,5 @@
-import { FETCH_ERROR } from '@ast/constants';
-import { setResult } from '@ast/utils';
+import { FETCH_ERROR } from '@ast/constants/constants';
+import { setResult } from '@ast/utils/setResult';
 
 export const fetchGet = async (url: unknown) => {
   if (typeof url !== 'string') {
