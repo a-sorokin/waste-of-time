@@ -1,5 +1,7 @@
 import { add } from '@ast/logic/astFunctions/add';
+import { contains } from '@ast/logic/astFunctions/contains';
 import { equals } from '@ast/logic/astFunctions/equals';
+import { fetchGet } from '@ast/logic/astFunctions/fetchGet';
 import { not } from '@ast/logic/astFunctions/not';
 import { EXPRESSION_NAMES } from '@ast/logic/constants';
 import { parseOneParameter, parseTwoParameters } from '@ast/logic/evaluators/utils';
@@ -16,6 +18,13 @@ const evaluateFunctionActions = {
   },
   [EXPRESSION_NAMES.not]: (expression: Expression) => {
     return not(parseOneParameter(expression));
+  },
+  [EXPRESSION_NAMES.contains]: (expression: Expression) => {
+    const [p1, p2] = parseTwoParameters(expression);
+    return contains(p1, p2);
+  },
+  [EXPRESSION_NAMES.fetchGet]: (expression: Expression) => {
+    return fetchGet(parseOneParameter(expression));
   },
 };
 

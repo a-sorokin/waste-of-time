@@ -14,6 +14,15 @@ export default defineConfig(({ mode }) => {
       },
     },
     css: { preprocessorOptions: { scss: { api: 'modern-compiler' } } },
+    server: {
+      proxy: {
+        '/google': {
+          target: 'https://www.google.com',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/google/, ''),
+        },
+      },
+    },
     plugins: [
       react(),
       mode === 'web'

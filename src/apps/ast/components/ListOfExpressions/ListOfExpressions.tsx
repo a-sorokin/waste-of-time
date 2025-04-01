@@ -18,7 +18,7 @@ export const ListOfExpressions = () => {
     <div className={styles.listOfExpressions}>
       {EXPRESSIONS.map(({ title, expression }, index) => (
         <Button key={`expression-${title}-${index}`} onClick={() => onClick(expression)}>
-          {title}
+          <div className={styles.title}>{title}</div>
         </Button>
       ))}
     </div>
