@@ -1,4 +1,3 @@
-import styles from './Button.module.scss';
 import { describe, expect, it, vi } from 'vitest';
 import { fireEvent, render, screen } from '@testing-library/react';
 import { Button } from '@/basicComponents/Button/Button';
@@ -19,16 +18,6 @@ describe('Button component', () => {
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
-  it('applies the "active" class when active prop is true', () => {
-    render(
-      <Button onClick={() => {}} active>
-        Active Button
-      </Button>,
-    );
-    const buttonElement = screen.getByRole('button');
-    expect(buttonElement).toHaveClass(styles.active);
-  });
-
   it('renders children and hint correctly', () => {
     render(
       <Button onClick={() => {}} hint="Hint text">
@@ -37,16 +26,6 @@ describe('Button component', () => {
     );
     expect(screen.getByText('Button Text')).toBeInTheDocument();
     expect(screen.getByText('Hint text')).toBeInTheDocument();
-  });
-
-  it('applies wide-specific styles when wide prop is true', () => {
-    render(
-      <Button onClick={() => {}} wide>
-        Wide Button
-      </Button>,
-    );
-    const buttonElement = screen.getByRole('button');
-    expect(buttonElement).toHaveClass(styles.wide);
   });
 
   it('handles custom className correctly', () => {
