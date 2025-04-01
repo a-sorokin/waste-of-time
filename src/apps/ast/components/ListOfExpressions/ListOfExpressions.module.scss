@@ -1,8 +1,15 @@
 .listOfExpressions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
   padding: 10px;
+  height: 100%;
+}
+
+.mainExpressions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   height: 100%;
 }

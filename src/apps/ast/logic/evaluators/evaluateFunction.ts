@@ -1,3 +1,4 @@
+import { NAME_ERROR } from '@ast/constants';
 import { add } from '@ast/logic/astFunctions/add';
 import { contains } from '@ast/logic/astFunctions/contains';
 import { equals } from '@ast/logic/astFunctions/equals';
@@ -34,8 +35,8 @@ const evaluateFunctionActions = {
 export const evaluateFunction = async (expression: Expression): Promise<ExpressionValue> => {
   const action = evaluateFunctionActions[expression.name];
   if (!action) {
-    setResult('Unknown name');
-    throw new Error('Unknown name');
+    setResult(NAME_ERROR);
+    throw new Error(NAME_ERROR);
   }
   return action(expression);
 };

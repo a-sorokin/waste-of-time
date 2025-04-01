@@ -6,21 +6,27 @@ import { EXPRESSIONS } from '@ast/expressions';
 
 export const ListOfExpressions = () => {
   const setExpression = useAstStore((state) => state.setExpression);
+  const setEditMode = useAstStore((state) => state.setEditMode);
 
   const onClick = useCallback(
     (expression: string) => {
       setExpression(expression);
+      setEditMode(false);
     },
-    [setExpression],
+    [setEditMode, setExpression],
   );
 
   return (
     <div className={styles.listOfExpressions}>
-      {EXPRESSIONS.map(({ title, expression }, index) => (
-        <Button key={`expression-${title}-${index}`} onClick={() => onClick(expression)}>
-          {title}
-        </Button>
-      ))}
+      <div className={styles.mainExpressions}>
+        {EXPRESSIONS.map(({ title, expression }, index) => (
+          <Button key={`expression-${title}-${index}`} onClick={() => onClick(expression)}>
+            {title}
+          </Button>
+        ))}
+      </div>
+
+      <Button onClick={() => setEditMode(true)}>Use your own expression</Button>
     </div>
   );
 };
