@@ -1,6 +1,5 @@
 import { create } from 'zustand';
-import { evaluate } from '@ast/logic/evaluators/evaluate';
-import { Expression } from '@ast/logic/types';
+import { evaluateAndSetResult } from '@ast/utils';
 
 type Store = {
   expression: string;
@@ -10,16 +9,13 @@ type Store = {
   setResult: (result: string) => void;
 };
 
-export const useAstStore = create<Store>((set, get) => ({
+export const useAstStore = create<Store>((set) => ({
   expression: '',
   result: '',
 
   setExpression: (expression) => {
     set({ expression });
-
-    const parsedExpression: Expression = JSON.parse(expression);
-    const localResult = evaluate(parsedExpression);
-    if (localResult) get().setResult(JSON.stringify(localResult));
+    evaluateAndSetResult(expression);
   },
 
   setResult: (result) => {

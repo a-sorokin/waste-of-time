@@ -10,6 +10,7 @@ export const fetchGet = async (url: unknown) => {
     const response = await fetch(url);
     return response.text();
   } catch (error) {
-    // console.error(error);
+    setResult('Error fetching URL');
+    return 'Error fetching URL';
   }
 };
