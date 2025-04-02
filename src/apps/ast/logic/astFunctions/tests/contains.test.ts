@@ -1,24 +1,32 @@
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { CONTAIN_ERROR } from '@ast/constants/constants';
 import { contains } from '@ast/logic/astFunctions/contains';
-import * as utils from '@ast/utils/evaluateAndSetResult';
+import * as setResultModule from '@ast/utils/setResult';
+
+// Mock the setResult module
+vi.mock('@ast/utils/setResult', () => ({
+  setResult: vi.fn(),
+}));
 
 describe('contains function', () => {
-  // Spy on setResult function
-  const setResultSpy = vi.spyOn(utils, 'setResult');
+  const { setResult } = setResultModule;
+
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
   it('should return true when value contains search string', () => {
     expect(contains('hello world', 'world')).toBe(true);
     expect(contains('testing', 'test')).toBe(true);
     expect(contains('abc123', '123')).toBe(true);
-    expect(setResultSpy).not.toHaveBeenCalled();
+    expect(setResult).not.toHaveBeenCalled();
   });
 
   it('should return false when value does not contain search string', () => {
     expect(contains('hello world', 'planet')).toBe(false);
     expect(contains('testing', 'xyz')).toBe(false);
     expect(contains('abc123', '456')).toBe(false);
-    expect(setResultSpy).not.toHaveBeenCalled();
+    expect(setResult).not.toHaveBeenCalled();
   });
 
   it('should handle empty strings correctly', () => {
@@ -41,7 +49,7 @@ describe('contains function', () => {
     expect(() => contains(undefined as any, 'test')).toThrow(CONTAIN_ERROR);
     expect(() => contains(true as any, 'test')).toThrow(CONTAIN_ERROR);
     expect(() => contains({} as any, 'test')).toThrow(CONTAIN_ERROR);
-    expect(setResultSpy).toHaveBeenCalledWith(CONTAIN_ERROR);
+    expect(setResult).toHaveBeenCalledWith(CONTAIN_ERROR);
   });
 
   it('should throw an error when second parameter is not a string', () => {
@@ -50,12 +58,12 @@ describe('contains function', () => {
     expect(() => contains('test', undefined as any)).toThrow(CONTAIN_ERROR);
     expect(() => contains('test', true as any)).toThrow(CONTAIN_ERROR);
     expect(() => contains('test', {} as any)).toThrow(CONTAIN_ERROR);
-    expect(setResultSpy).toHaveBeenCalledWith(CONTAIN_ERROR);
+    expect(setResult).toHaveBeenCalledWith(CONTAIN_ERROR);
   });
 
   it('should throw an error when both parameters are not strings', () => {
     expect(() => contains(123 as any, 456 as any)).toThrow(CONTAIN_ERROR);
     expect(() => contains(null as any, undefined as any)).toThrow(CONTAIN_ERROR);
-    expect(setResultSpy).toHaveBeenCalledWith(CONTAIN_ERROR);
+    expect(setResult).toHaveBeenCalledWith(CONTAIN_ERROR);
   });
 });

@@ -1,16 +1,22 @@
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { NUM_ERROR } from '@ast/constants/constants';
 import { add } from '@ast/logic/astFunctions/add';
-import * as utils from '@ast/utils/evaluateAndSetResult';
+import * as setResultModule from '@ast/utils/setResult';
 
 describe('add function', () => {
-  // Spy on setResult function
-  const setResultSpy = vi.spyOn(utils, 'setResult');
+  // Mock setResult function
+  const setResult = vi.fn();
+  vi.mock('@ast/utils/setResult', () => ({
+    setResult: vi.fn(),
+  }));
+
+  beforeEach(() => {
+    vi.resetAllMocks();
 
   it('should add two positive numbers correctly', () => {
     const result = add(5, 3);
     expect(result).toBe(8);
-    expect(setResultSpy).not.toHaveBeenCalled();
+    expect(setResultModule.setResult).not.toHaveBeenCalled();
   });
 
   it('should handle negative numbers correctly', () => {
@@ -32,17 +38,17 @@ describe('add function', () => {
 
   it('should throw an error when first parameter is not a number', () => {
     expect(() => add('5', 3)).toThrow(NUM_ERROR);
-    expect(setResultSpy).toHaveBeenCalledWith(NUM_ERROR);
+    expect(setResultModule.setResult).toHaveBeenCalledWith(NUM_ERROR);
   });
 
   it('should throw an error when second parameter is not a number', () => {
     expect(() => add(5, '3')).toThrow(NUM_ERROR);
-    expect(setResultSpy).toHaveBeenCalledWith(NUM_ERROR);
+    expect(setResultModule.setResult).toHaveBeenCalledWith(NUM_ERROR);
   });
 
   it('should throw an error when both parameters are not numbers', () => {
     expect(() => add('5', '3')).toThrow(NUM_ERROR);
-    expect(setResultSpy).toHaveBeenCalledWith(NUM_ERROR);
+    expect(setResultModule.setResult).toHaveBeenCalledWith(NUM_ERROR);
   });
 
   it('should throw an error for null and undefined values', () => {

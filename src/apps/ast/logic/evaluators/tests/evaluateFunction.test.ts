@@ -29,10 +29,9 @@ vi.mock('@ast/logic/evaluators/utils', () => ({
   parseTwoParameters: vi.fn().mockResolvedValue(['parsed1', 'parsed2']),
 }));
 
-vi.mock('@ast/utils', () => ({
+vi.mock('@ast/utils/setResult', () => ({
   setResult: vi.fn(),
 }));
-
 describe('evaluateFunction', () => {
   const mockExpression = (name: string): Expression => ({
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -109,7 +108,7 @@ describe('evaluateFunction', () => {
 
     await expect(evaluateFunction(expression)).rejects.toThrow(NAME_ERROR);
 
-    const { setResult } = await import('@ast/utils/evaluateAndSetResult');
+    const { setResult } = await import('@ast/utils/setResult');
     expect(setResult).toHaveBeenCalledWith(NAME_ERROR);
   });
 
