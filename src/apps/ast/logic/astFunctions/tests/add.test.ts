@@ -12,6 +12,7 @@ describe('add function', () => {
 
   beforeEach(() => {
     vi.resetAllMocks();
+  });
 
   it('should add two positive numbers correctly', () => {
     const result = add(5, 3);
