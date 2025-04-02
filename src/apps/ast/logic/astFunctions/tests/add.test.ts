@@ -1,11 +1,9 @@
-import { describe, expect, it, vi, beforeEach } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { NUM_ERROR } from '@ast/constants/constants';
 import { add } from '@ast/logic/astFunctions/add';
 import * as setResultModule from '@ast/utils/setResult';
 
 describe('add function', () => {
-  // Mock setResult function
-  const setResult = vi.fn();
   vi.mock('@ast/utils/setResult', () => ({
     setResult: vi.fn(),
   }));
