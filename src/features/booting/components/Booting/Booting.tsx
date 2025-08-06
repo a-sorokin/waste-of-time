@@ -1,5 +1,6 @@
 import styles from './Booting.module.scss';
 import { FC, memo, useEffect, useState } from 'react';
+import { Button } from '@/basicComponents/Button/Button';
 import { BOOT_MESSAGES } from '@/features/booting/components/Booting/constants';
 
 type Props = {
@@ -32,16 +33,22 @@ export const LinuxBoot: FC<Props> = memo(({ onComplete }) => {
   }, [onComplete]);
 
   return (
-    <div className={styles.container}>
-      <div className={styles.terminal}>
-        {lines.map((line, index) => (
-          <div key={`booting-${index}`} className={styles.textLine}>
-            {line}
-          </div>
-        ))}
+    <>
+      <div className={styles.container}>
+        <div className={styles.terminal}>
+          {lines.map((line, index) => (
+            <div key={`booting-${index}`} className={styles.textLine}>
+              {line}
+            </div>
+          ))}
+        </div>
+
+        <span className={styles.cursor} />
       </div>
 
-      <span className={styles.cursor} />
-    </div>
+      <Button className={styles.skip} onClick={onComplete}>
+        Skip
+      </Button>
+    </>
   );
 });

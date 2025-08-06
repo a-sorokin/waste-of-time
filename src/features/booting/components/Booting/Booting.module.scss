@@ -39,3 +39,15 @@
     opacity: 1;
   }
 }
+
+.skip {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  color: var(--text-color);
+  font-size: 14px;
+}
