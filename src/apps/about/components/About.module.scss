@@ -1,0 +1,381 @@
+// Old Linux OS Theme Colors
+$bg-primary: #000000;
+$bg-secondary: #1a1a1a;
+$bg-tertiary: #2a2a2a;
+$text-primary: #00ff00;
+$text-secondary: #00cc00;
+$text-muted: #008800;
+$border-color: #00ff00;
+$accent-color: #ffff00;
+$error-color: #ff0000;
+$success-color: #00ff00;
+
+.container {
+  background: $bg-primary;
+  color: $text-primary;
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  font-size: 12px;
+  line-height: 1.4;
+  padding: 16px;
+  min-height: 100vh;
+  overflow-y: auto;
+  border: 2px solid $border-color;
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
+  animation: bootUp 0.5s ease-out;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(0, 255, 0, 0.03) 2px,
+      rgba(0, 255, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: -1;
+  }
+}
+
+@keyframes bootUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.header {
+  border-bottom: 2px solid $border-color;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+  animation: slideDown 0.3s ease-out;
+
+  .title {
+    color: $accent-color;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 8px 0;
+    text-shadow: 0 0 5px $accent-color;
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  .timestamp {
+    color: $text-muted;
+    font-size: 10px;
+    font-style: italic;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px $accent-color;
+  }
+  to {
+    text-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color;
+  }
+}
+
+.navigation {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 12px;
+  background: $bg-secondary;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.navButton {
+  background: $bg-tertiary;
+  border: 1px solid $border-color;
+  color: $text-primary;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  min-width: 120px;
+  height: 36px;
+  flex: 1;
+
+  &:hover {
+    background: $border-color;
+    color: $bg-primary;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+
+  &.active {
+    background: $border-color;
+    color: $bg-primary;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
+  }
+
+  .icon {
+    font-size: 12px;
+  }
+}
+
+.content {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.section {
+  h2 {
+    color: $accent-color;
+    font-size: 14px;
+    margin: 0 0 12px 0;
+    padding: 8px;
+    background: $bg-secondary;
+    border-left: 3px solid $accent-color;
+    animation: highlight 0.3s ease-out;
+  }
+}
+
+@keyframes highlight {
+  from {
+    background: $accent-color;
+    color: $bg-primary;
+  }
+  to {
+    background: $bg-secondary;
+    color: $accent-color;
+  }
+}
+
+.infoGrid {
+  display: grid;
+  gap: 8px;
+  animation: fadeInUp 0.4s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.infoItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 8px;
+  background: $bg-secondary;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+  width: 100%;
+
+  &:hover {
+    border-color: $border-color;
+    background: $bg-tertiary;
+    transform: translateX(2px);
+  }
+
+  &:nth-child(even) {
+    background: $bg-tertiary;
+  }
+
+  .label {
+    color: $text-secondary;
+    font-weight: bold;
+    min-width: 120px;
+    flex-shrink: 0;
+  }
+
+  .value {
+    color: $text-primary;
+    text-align: right;
+    word-break: break-word;
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  gap: 16px;
+  color: $text-primary;
+  animation: pulse 1.5s ease-in-out infinite;
+
+  .spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid $bg-secondary;
+    border-top: 3px solid $border-color;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.error {
+  color: $error-color;
+  text-align: center;
+  padding: 20px;
+  border: 2px solid $error-color;
+  background: rgba(255, 0, 0, 0.1);
+  animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+// Responsive design for compact window
+@media (max-width: 600px) {
+  .container {
+    padding: 8px;
+    font-size: 10px;
+  }
+
+  .header .title {
+    font-size: 14px;
+  }
+
+  .navigation {
+    gap: 4px;
+    padding: 8px;
+  }
+
+  .navButton {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+
+  .infoItem {
+    padding: 4px 6px;
+
+    .label {
+      min-width: 80px;
+      font-size: 9px;
+    }
+
+    .value {
+      font-size: 9px;
+      max-width: 70%;
+    }
+  }
+}
+
+// Terminal cursor effect
+.container::after {
+  content: '_';
+  color: $text-primary;
+  animation: blink 1s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+// Scan line effect
+.container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, $border-color, transparent);
+  animation: scanLine 3s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes scanLine {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
