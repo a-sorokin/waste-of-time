@@ -144,7 +144,7 @@ export const About = () => {
               onClick={() => setActiveSection(section.id)}
             >
               <IconComponent className={styles.icon} size={16} strokeWidth={2} />
-              {section.title}
+              <span>{section.title}</span>
             </button>
           );
         })}
