@@ -1,17 +1,21 @@
-// Old Linux OS Theme Colors
-$bg-primary: #000;
-$text-primary: #00ff00;
-$text-secondary: #00ff00;
-$text-muted: #00ff00;
-$border-color: #00ff00;
+$bg-primary: var(--main-bg-color);
+$text-primary: var(--text-color);
+$text-secondary: var(--text-color);
+$text-muted: var(--text-color);
+$border-color: var(--text-color);
 
 .container {
+  display: flex;
+  flex-direction: column;
   animation: bootUp 0.5s ease-out;
-  border: 2px solid $border-color;
+  box-sizing: border-box;
   background: $bg-primary;
   padding: 16px;
-  min-height: 100vh;
-  overflow-y: auto;
+  width: 100%;
+  min-width: 700px;
+  height: 100%;
+  min-height: 600px;
+  overflow: auto;
   color: $text-primary;
   font-size: 12px;
   line-height: 1.4;
@@ -19,8 +23,14 @@ $border-color: #00ff00;
 }
 
 @keyframes bootUp {
-  0% { transform: scale(0.95); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
+  0% {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .header {
@@ -44,12 +54,20 @@ $border-color: #00ff00;
 }
 
 @keyframes slideDown {
-  from { transform: translateY(-10px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 .navigation {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 8px;
   animation: fadeIn 0.4s ease-out;
   margin-bottom: 16px;
@@ -59,7 +77,14 @@ $border-color: #00ff00;
   padding: 8px;
 }
 
-@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
 .navButton {
   display: flex;
@@ -67,8 +92,10 @@ $border-color: #00ff00;
   justify-content: center;
   align-items: center;
   gap: 6px;
-  transition: background-color 0.15s ease, transform 0.15s ease;
-  cursor: pointer;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease;
+  cursor: default;
   border: 1px solid $border-color;
   border-radius: 4px;
   background: $bg-primary;
@@ -84,7 +111,9 @@ $border-color: #00ff00;
     background: $border-color;
     color: $bg-primary;
 
-    .icon { color: $bg-primary; }
+    .icon * {
+      color: $bg-primary;
+    }
   }
 
   &:focus-visible {
@@ -92,59 +121,91 @@ $border-color: #00ff00;
     outline-offset: 2px;
   }
 
-  &:active { transform: translateY(0); }
+  &:active {
+    transform: translateY(0);
+  }
 
   &.active {
     background: $border-color;
     color: $bg-primary;
 
-    .icon { color: $bg-primary; }
+    .icon * {
+      color: $bg-primary;
+    }
   }
 
   .icon {
-    font-size: 12px;
     color: $text-primary;
+    font-size: 12px;
   }
 }
 
-.content { animation: slideIn 0.3s ease-out; }
+.content {
+  flex: 1;
+  animation: slideIn 0.3s ease-out;
+  min-height: 0;
+  overflow-y: auto;
+}
 
-@keyframes slideIn { from { transform: translateX(-10px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+@keyframes slideIn {
+  from {
+    transform: translateX(-10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
 
 .section {
   border: 1px solid $border-color;
   border-radius: 6px;
-  padding: 8px;
   background: $bg-primary;
+  padding: 8px;
 
   h2 {
     margin: 0 0 12px 0;
     border-left: 3px solid $text-primary;
+    background: $bg-primary;
     padding: 6px 8px;
     color: $text-primary;
     font-size: 14px;
-    background: $bg-primary;
   }
 }
 
 .infoGrid {
   display: grid;
+  grid-template-columns: 1fr;
   gap: 8px;
   animation: fadeInUp 0.25s ease-out;
-  grid-template-columns: 1fr;
 }
 
 @media (min-width: 560px) {
-  .infoGrid { grid-template-columns: 1fr 1fr; }
+  .infoGrid {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
-@keyframes fadeInUp { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes fadeInUp {
+  from {
+    transform: translateY(6px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 
 .infoItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: background-color 0.15s ease, transform 0.15s ease, border-color 0.15s ease;
+  transition:
+    background-color 0.15s ease,
+    transform 0.15s ease,
+    border-color 0.15s ease;
   border: 1px solid rgba(0, 255, 0, 0.2);
   border-radius: 4px;
   background: $bg-primary;
@@ -169,29 +230,35 @@ $border-color: #00ff00;
     max-width: 240px;
     overflow: hidden;
     color: $text-primary;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
     text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
     word-break: break-word;
-    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 }
 
 .badge {
   display: inline-flex;
-  align-items: center;
   justify-content: center;
-  height: 18px;
-  padding: 0 6px;
-  border-radius: 999px;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
+  align-items: center;
   border: 1px solid $border-color;
+  border-radius: 999px;
+  padding: 0 6px;
+  height: 18px;
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.02em;
 }
 
-.badgeYes { background: $border-color; color: $bg-primary; }
-.badgeNo { background: transparent; color: $text-primary; }
+.badgeYes {
+  background: $border-color;
+  color: $bg-primary;
+}
+.badgeNo {
+  background: transparent;
+  color: $text-primary;
+}
 
 .loading {
   display: flex;
@@ -213,8 +280,23 @@ $border-color: #00ff00;
   }
 }
 
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
 
 .error {
   animation: shake 0.5s ease-in-out;
@@ -225,16 +307,119 @@ $border-color: #00ff00;
   text-align: center;
 }
 
-@keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-5px);} 75% { transform: translateX(5px);} }
-
-// Responsive design for compact window
-@media (max-width: 600px) {
-  .container { padding: 8px; font-size: 10px; }
-  .header .title { font-size: 14px; }
-  .navigation { gap: 4px; padding: 8px; }
-  .navButton { padding: 4px 8px; font-size: 10px; }
-  .infoItem { padding: 4px 6px; }
-  .infoItem .label { min-width: 80px; font-size: 9px; }
-  .infoItem .value { max-width: 70%; font-size: 9px; }
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  75% {
+    transform: translateX(5px);
+  }
 }
 
+// Responsive design for different screen sizes
+@media (max-width: 800px) {
+  .container {
+    padding: 12px;
+    width: 95vw;
+    height: 80vh;
+    font-size: 11px;
+  }
+
+  .header .title {
+    font-size: 16px;
+  }
+  .navigation {
+    gap: 6px;
+    padding: 8px;
+  }
+  .navButton {
+    padding: 6px 8px;
+    min-width: 100px;
+    font-size: 10px;
+  }
+  .infoItem {
+    padding: 5px 6px;
+  }
+  .infoItem .label {
+    min-width: 90px;
+    font-size: 10px;
+  }
+  .infoItem .value {
+    max-width: 60%;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 8px;
+    width: 95vw;
+    height: 85vh;
+    font-size: 10px;
+  }
+  .header .title {
+    font-size: 14px;
+  }
+  .navigation {
+    gap: 4px;
+    padding: 6px;
+  }
+  .navButton {
+    padding: 4px 6px;
+    min-width: 80px;
+    font-size: 9px;
+  }
+  .infoItem {
+    padding: 4px 6px;
+  }
+  .infoItem .label {
+    min-width: 80px;
+    font-size: 9px;
+  }
+  .infoItem .value {
+    max-width: 70%;
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 400px) {
+  .container {
+    padding: 6px;
+    width: 98vw;
+    height: 90vh;
+    font-size: 9px;
+  }
+  .header .title {
+    font-size: 12px;
+  }
+  .navigation {
+    flex-direction: column;
+    gap: 2px;
+    padding: 4px;
+  }
+  .navButton {
+    padding: 3px 4px;
+    min-width: auto;
+    height: 28px;
+    font-size: 8px;
+  }
+  .infoItem {
+    padding: 3px 4px;
+  }
+  .infoItem .label {
+    min-width: 70px;
+    font-size: 8px;
+  }
+  .infoItem .value {
+    max-width: 75%;
+    font-size: 8px;
+  }
+}
+
+.userAgent {
+  width: 150px;
+}

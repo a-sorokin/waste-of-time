@@ -1,7 +1,8 @@
 import styles from './About.module.scss';
 import { useEffect, useState } from 'react';
+import clsx from 'clsx';
 import { ExtendedNavigator, ExtendedPerformance, SystemInfo } from '@/apps/about/types';
-import { Globe, Monitor, MonitorSmartphone, Wifi, MapPin } from 'lucide-react';
+import { Globe, MapPin, Monitor, MonitorSmartphone, Wifi } from 'lucide-react';
 
 export const About = () => {
   const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -142,7 +143,7 @@ export const About = () => {
               className={`${styles.navButton} ${activeSection === section.id ? styles.active : ''}`}
               onClick={() => setActiveSection(section.id)}
             >
-              <IconComponent className={styles.icon} size={16} />
+              <IconComponent className={styles.icon} size={16} strokeWidth={2} />
               {section.title}
             </button>
           );
@@ -156,7 +157,7 @@ export const About = () => {
             <div className={styles.infoGrid}>
               <div className={styles.infoItem}>
                 <span className={styles.label}>User Agent:</span>
-                <span className={styles.value} title={systemInfo.userAgent}>
+                <span className={clsx(styles.value, styles.userAgent)} title={systemInfo.userAgent}>
                   {systemInfo.userAgent.length > 50
                     ? systemInfo.userAgent.substring(0, 50) + '...'
                     : systemInfo.userAgent}
@@ -181,9 +182,7 @@ export const About = () => {
               <div className={styles.infoItem}>
                 <span className={styles.label}>Cookies Enabled:</span>
                 <span className={styles.value}>
-                  <span
-                    className={`${styles.badge} ${systemInfo.cookieEnabled ? styles.badgeYes : styles.badgeNo}`}
-                  >
+                  <span className={`${styles.badge} ${systemInfo.cookieEnabled ? styles.badgeYes : styles.badgeNo}`}>
                     {systemInfo.cookieEnabled ? 'YES' : 'NO'}
                   </span>
                 </span>
@@ -191,9 +190,7 @@ export const About = () => {
               <div className={styles.infoItem}>
                 <span className={styles.label}>Online:</span>
                 <span className={styles.value}>
-                  <span
-                    className={`${styles.badge} ${systemInfo.onLine ? styles.badgeYes : styles.badgeNo}`}
-                  >
+                  <span className={`${styles.badge} ${systemInfo.onLine ? styles.badgeYes : styles.badgeNo}`}>
                     {systemInfo.onLine ? 'YES' : 'NO'}
                   </span>
                 </span>
@@ -238,7 +235,9 @@ export const About = () => {
                 <>
                   <div className={styles.infoItem}>
                     <span className={styles.label}>Battery Level:</span>
-                    <span className={styles.value}>{systemInfo.battery.level}%</span>
+                    <span className={styles.value}>
+                      {systemInfo.battery.level ? `${systemInfo.battery.level}%` : 'Not available'}
+                    </span>
                   </div>
                   <div className={styles.infoItem}>
                     <span className={styles.label}>Charging:</span>
