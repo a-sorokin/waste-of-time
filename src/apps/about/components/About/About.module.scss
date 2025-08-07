@@ -107,6 +107,10 @@ $border-color: var(--text-color);
   font-size: 11px;
   font-family: inherit;
 
+  &:hover {
+    background: var(--hover-color);
+  }
+
   &.active {
     outline: 1px solid $border-color;
   }
