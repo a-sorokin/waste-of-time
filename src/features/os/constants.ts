@@ -4,4 +4,5 @@ export enum APPS {
   tetris = 'Tetris.exe',
   hypercube = 'Hypercube.exe',
   AST = 'AST.exe',
+  about = 'About.exe',
 }

@@ -1,4 +1,5 @@
 import styles from './Desktop.module.scss';
+import { About } from '@/apps/about';
 import { Ast, AstExe } from '@/apps/ast';
 import { HyperCubeExe, Hypercube } from '@/apps/hypercube';
 import { Readme, ReadmeExe } from '@/apps/readme';
@@ -26,6 +27,10 @@ export const Desktop = () => {
       <Executables />
 
       <div className={styles.apps}>
+        <AppContainer appName={APPS.about} launchSpeed={20} minWidth={700} minHeight={600}>
+          <About />
+        </AppContainer>
+
         <AppContainer appName={APPS.todoList} launchSpeed={DEV_MODE ? 1 : 30} minWidth={300} maxHeight={700}>
           <TodoList />
         </AppContainer>
