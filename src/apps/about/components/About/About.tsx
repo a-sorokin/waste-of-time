@@ -180,11 +180,23 @@ export const About = () => {
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Cookies Enabled:</span>
-                <span className={styles.value}>{systemInfo.cookieEnabled ? 'Yes' : 'No'}</span>
+                <span className={styles.value}>
+                  <span
+                    className={`${styles.badge} ${systemInfo.cookieEnabled ? styles.badgeYes : styles.badgeNo}`}
+                  >
+                    {systemInfo.cookieEnabled ? 'YES' : 'NO'}
+                  </span>
+                </span>
               </div>
               <div className={styles.infoItem}>
                 <span className={styles.label}>Online:</span>
-                <span className={styles.value}>{systemInfo.onLine ? 'Yes' : 'No'}</span>
+                <span className={styles.value}>
+                  <span
+                    className={`${styles.badge} ${systemInfo.onLine ? styles.badgeYes : styles.badgeNo}`}
+                  >
+                    {systemInfo.onLine ? 'YES' : 'NO'}
+                  </span>
+                </span>
               </div>
             </div>
           </div>
@@ -230,7 +242,13 @@ export const About = () => {
                   </div>
                   <div className={styles.infoItem}>
                     <span className={styles.label}>Charging:</span>
-                    <span className={styles.value}>{systemInfo.battery.charging ? 'Yes' : 'No'}</span>
+                    <span className={styles.value}>
+                      <span
+                        className={`${styles.badge} ${systemInfo.battery.charging ? styles.badgeYes : styles.badgeNo}`}
+                      >
+                        {systemInfo.battery.charging ? 'YES' : 'NO'}
+                      </span>
+                    </span>
                   </div>
                 </>
               )}
