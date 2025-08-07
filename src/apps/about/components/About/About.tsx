@@ -1,6 +1,7 @@
 import styles from './About.module.scss';
 import { useEffect, useState } from 'react';
 import { ExtendedNavigator, ExtendedPerformance, SystemInfo } from '@/apps/about/types';
+import { Globe, Monitor, MonitorSmartphone, Wifi, MapPin } from 'lucide-react';
 
 export const About = () => {
   const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
@@ -99,11 +100,11 @@ export const About = () => {
   }, []);
 
   const sections = [
-    { id: 'browser', title: 'Browser Info', icon: '🌐' },
-    { id: 'system', title: 'System Info', icon: '💻' },
-    { id: 'screen', title: 'Screen Info', icon: '📺' },
-    { id: 'network', title: 'Network Info', icon: '📡' },
-    { id: 'location', title: 'Location Info', icon: '📍' },
+    { id: 'browser', title: 'Browser Info', icon: Globe },
+    { id: 'system', title: 'System Info', icon: Monitor },
+    { id: 'screen', title: 'Screen Info', icon: MonitorSmartphone },
+    { id: 'network', title: 'Network Info', icon: Wifi },
+    { id: 'location', title: 'Location Info', icon: MapPin },
   ];
 
   if (loading) {
@@ -133,16 +134,19 @@ export const About = () => {
       </div>
 
       <div className={styles.navigation}>
-        {sections.map((section) => (
-          <button
-            key={section.id}
-            className={`${styles.navButton} ${activeSection === section.id ? styles.active : ''}`}
-            onClick={() => setActiveSection(section.id)}
-          >
-            <span className={styles.icon}>{section.icon}</span>
-            {section.title}
-          </button>
-        ))}
+        {sections.map((section) => {
+          const IconComponent = section.icon;
+          return (
+            <button
+              key={section.id}
+              className={`${styles.navButton} ${activeSection === section.id ? styles.active : ''}`}
+              onClick={() => setActiveSection(section.id)}
+            >
+              <IconComponent className={styles.icon} size={16} />
+              {section.title}
+            </button>
+          );
+        })}
       </div>
 
       <div className={styles.content}>
