@@ -1,8 +1,8 @@
 import styles from './About.module.scss';
-import React, { useEffect, useState } from 'react';
-import { ExtendedNavigator, ExtendedPerformance, SystemInfo } from '@/apps/about/components/types';
+import { useEffect, useState } from 'react';
+import { ExtendedNavigator, ExtendedPerformance, SystemInfo } from '@/apps/about/types';
 
-export const About: React.FC = () => {
+export const About = () => {
   const [systemInfo, setSystemInfo] = useState<SystemInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState<string>('browser');
