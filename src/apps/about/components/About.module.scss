@@ -1,77 +1,56 @@
 // Old Linux OS Theme Colors
-$bg-primary: #000000;
+$bg-primary: var(--main-bg-color);
 $bg-secondary: #1a1a1a;
 $bg-tertiary: #2a2a2a;
-$text-primary: #00ff00;
+$text-primary: var(--text-color);
 $text-secondary: #00cc00;
 $text-muted: #008800;
-$border-color: #00ff00;
-$accent-color: #ffff00;
+$border-color: var(--text-color);
 $error-color: #ff0000;
-$success-color: #00ff00;
+$success-color: var(--text-color);
 
 .container {
+  animation: bootUp 0.5s ease-out;
+  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
+  border: 2px solid $border-color;
   background: $bg-primary;
-  color: $text-primary;
-  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
-  font-size: 12px;
-  line-height: 1.4;
   padding: 16px;
   min-height: 100vh;
   overflow-y: auto;
-  border: 2px solid $border-color;
-  box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.1);
-  animation: bootUp 0.5s ease-out;
-
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0, 255, 0, 0.03) 2px,
-      rgba(0, 255, 0, 0.03) 4px
-    );
-    pointer-events: none;
-    z-index: -1;
-  }
+  color: $text-primary;
+  font-size: 12px;
+  line-height: 1.4;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 @keyframes bootUp {
   0% {
-    opacity: 0;
     transform: scale(0.95);
+    opacity: 0;
   }
   100% {
-    opacity: 1;
     transform: scale(1);
+    opacity: 1;
   }
 }
 
 .header {
+  animation: slideDown 0.3s ease-out;
+  margin-bottom: 16px;
   border-bottom: 2px solid $border-color;
   padding-bottom: 12px;
-  margin-bottom: 16px;
-  animation: slideDown 0.3s ease-out;
 
   .title {
-    color: $accent-color;
-    font-size: 18px;
-    font-weight: bold;
     margin: 0 0 8px 0;
-    text-shadow: 0 0 5px $accent-color;
-    animation: glow 2s ease-in-out infinite alternate;
+    color: $text-primary;
+    font-weight: bold;
+    font-size: 18px;
   }
 
   .timestamp {
     color: $text-muted;
-    font-size: 10px;
     font-style: italic;
+    font-size: 10px;
   }
 }
 
@@ -86,24 +65,15 @@ $success-color: #00ff00;
   }
 }
 
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px $accent-color;
-  }
-  to {
-    text-shadow: 0 0 10px $accent-color, 0 0 20px $accent-color;
-  }
-}
-
 .navigation {
   display: flex;
   gap: 8px;
+  animation: fadeIn 0.4s ease-out;
   margin-bottom: 20px;
-  padding: 12px;
-  background: $bg-secondary;
   border: 1px solid $border-color;
   border-radius: 4px;
-  animation: fadeIn 0.4s ease-out;
+  background: $bg-secondary;
+  padding: 12px;
 }
 
 @keyframes fadeIn {
@@ -116,28 +86,27 @@ $success-color: #00ff00;
 }
 
 .navButton {
-  background: $bg-tertiary;
-  border: 1px solid $border-color;
-  color: $text-primary;
-  padding: 8px 12px;
-  font-family: inherit;
-  font-size: 11px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  border-radius: 2px;
   display: flex;
-  align-items: center;
+  flex: 1;
   justify-content: center;
+  align-items: center;
   gap: 4px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  background: $bg-tertiary;
+  padding: 8px 12px;
   min-width: 120px;
   height: 36px;
-  flex: 1;
+  color: $text-primary;
+  font-size: 11px;
+  font-family: inherit;
 
   &:hover {
+    transform: translateY(-1px);
     background: $border-color;
     color: $bg-primary;
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0, 255, 0, 0.3);
   }
 
   &:active {
@@ -147,7 +116,6 @@ $success-color: #00ff00;
   &.active {
     background: $border-color;
     color: $bg-primary;
-    box-shadow: 0 0 8px rgba(0, 255, 0, 0.5);
   }
 
   .icon {
@@ -172,26 +140,16 @@ $success-color: #00ff00;
 
 .section {
   h2 {
-    color: $accent-color;
-    font-size: 14px;
     margin: 0 0 12px 0;
-    padding: 8px;
+    border-left: 3px solid $text-primary;
     background: $bg-secondary;
-    border-left: 3px solid $accent-color;
-    animation: highlight 0.3s ease-out;
+    padding: 8px;
+    color: $text-primary;
+    font-size: 14px;
   }
 }
 
-@keyframes highlight {
-  from {
-    background: $accent-color;
-    color: $bg-primary;
-  }
-  to {
-    background: $bg-secondary;
-    color: $accent-color;
-  }
-}
+
 
 .infoGrid {
   display: grid;
@@ -214,17 +172,17 @@ $success-color: #00ff00;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 8px;
-  background: $bg-secondary;
+  transition: all 0.2s ease;
   border: 1px solid transparent;
   border-radius: 2px;
-  transition: all 0.2s ease;
+  background: $bg-secondary;
+  padding: 6px 8px;
   width: 100%;
 
   &:hover {
+    transform: translateX(2px);
     border-color: $border-color;
     background: $bg-tertiary;
-    transform: translateX(2px);
   }
 
   &:nth-child(even) {
@@ -232,50 +190,55 @@ $success-color: #00ff00;
   }
 
   .label {
+    flex-shrink: 0;
+    min-width: 120px;
     color: $text-secondary;
     font-weight: bold;
-    min-width: 120px;
-    flex-shrink: 0;
   }
 
   .value {
-    color: $text-primary;
-    text-align: right;
-    word-break: break-word;
     max-width: 200px;
     overflow: hidden;
+    color: $text-primary;
+    text-align: right;
     text-overflow: ellipsis;
     white-space: nowrap;
+    word-break: break-word;
   }
 }
 
 .loading {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 200px;
+  align-items: center;
   gap: 16px;
-  color: $text-primary;
   animation: pulse 1.5s ease-in-out infinite;
+  height: 200px;
+  color: $text-primary;
 
   .spinner {
-    width: 32px;
-    height: 32px;
+    animation: spin 1s linear infinite;
     border: 3px solid $bg-secondary;
     border-top: 3px solid $border-color;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    width: 32px;
+    height: 32px;
   }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -284,16 +247,17 @@ $success-color: #00ff00;
 }
 
 .error {
-  color: $error-color;
-  text-align: center;
-  padding: 20px;
+  animation: shake 0.5s ease-in-out;
   border: 2px solid $error-color;
   background: rgba(255, 0, 0, 0.1);
-  animation: shake 0.5s ease-in-out;
+  padding: 20px;
+  color: $error-color;
+  text-align: center;
 }
 
 @keyframes shake {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateX(0);
   }
   25% {
@@ -334,48 +298,8 @@ $success-color: #00ff00;
     }
 
     .value {
-      font-size: 9px;
       max-width: 70%;
+      font-size: 9px;
     }
-  }
-}
-
-// Terminal cursor effect
-.container::after {
-  content: '_';
-  color: $text-primary;
-  animation: blink 1s infinite;
-  margin-left: 2px;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-
-// Scan line effect
-.container::before {
-  content: '';
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, $border-color, transparent);
-  animation: scanLine 3s linear infinite;
-  z-index: 1;
-  pointer-events: none;
-}
-
-@keyframes scanLine {
-  0% {
-    transform: translateY(-100vh);
-  }
-  100% {
-    transform: translateY(100vh);
   }
 }
