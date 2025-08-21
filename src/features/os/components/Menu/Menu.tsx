@@ -4,6 +4,7 @@ import { Button } from '@/basicComponents/Button/Button';
 import { useOsStore } from '@/features/os';
 import { APPS } from '@/features/os/constants';
 import { closeApp } from '@/ipcRenderer/actions/ipcMainActions';
+import { isElectron } from '@/utils/isElectron';
 
 export const Menu = () => {
   const runApp = useOsStore((state) => state.runApp);
@@ -12,8 +13,8 @@ export const Menu = () => {
   const menuItems = useMemo(
     () => [
       { text: 'About this computer', callback: () => runApp(APPS.about) },
-      { text: 'System Settings - no access' },
-      { text: 'Shut Down...', callback: closeApp },
+      // { text: 'System Settings - no access' },
+      ...(isElectron() ? [{ text: 'Shut Down...', callback: closeApp }] : []),
     ],
     [runApp],
   );
